@@ -40,27 +40,20 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.result_txt = new System.Windows.Forms.Label();
+            this.result_x = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.formulaY_txt = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.result_y = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txt11 = new System.Windows.Forms.RichTextBox();
             this.txt10 = new System.Windows.Forms.RichTextBox();
             this.txt01 = new System.Windows.Forms.RichTextBox();
             this.txt00 = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.s0_0 = new System.Windows.Forms.RichTextBox();
-            this.s0_1 = new System.Windows.Forms.RichTextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txt_f_2 = new System.Windows.Forms.RichTextBox();
-            this.txt_f_1 = new System.Windows.Forms.RichTextBox();
-            this.resotto = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -68,7 +61,7 @@
             // 
             // formulaX_txt
             // 
-            this.formulaX_txt.Location = new System.Drawing.Point(59, 128);
+            this.formulaX_txt.Location = new System.Drawing.Point(66, 72);
             this.formulaX_txt.Name = "formulaX_txt";
             this.formulaX_txt.Size = new System.Drawing.Size(341, 31);
             this.formulaX_txt.TabIndex = 0;
@@ -88,7 +81,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.x_start, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(59, 202);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(66, 146);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -161,27 +154,27 @@
             this.toolStripMenuItem2.Size = new System.Drawing.Size(92, 22);
             this.toolStripMenuItem2.Text = "123";
             // 
-            // result_txt
+            // result_x
             // 
-            this.result_txt.AutoSize = true;
-            this.result_txt.Location = new System.Drawing.Point(42, 385);
-            this.result_txt.Name = "result_txt";
-            this.result_txt.Size = new System.Drawing.Size(13, 13);
-            this.result_txt.TabIndex = 3;
-            this.result_txt.Text = "0";
+            this.result_x.AutoSize = true;
+            this.result_x.Location = new System.Drawing.Point(280, 258);
+            this.result_x.Name = "result_x";
+            this.result_x.Size = new System.Drawing.Size(13, 13);
+            this.result_x.TabIndex = 3;
+            this.result_x.Text = "0";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 131);
+            this.label1.Location = new System.Drawing.Point(16, 75);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 4;
-            this.label1.Text = "f1(x) =";
+            this.label1.Text = "f1(x,y) =";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(279, 471);
+            this.button1.Location = new System.Drawing.Point(264, 338);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 23);
             this.button1.TabIndex = 5;
@@ -192,7 +185,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 385);
+            this.label5.Location = new System.Drawing.Point(261, 258);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(18, 13);
             this.label5.TabIndex = 12;
@@ -200,7 +193,7 @@
             // 
             // formulaY_txt
             // 
-            this.formulaY_txt.Location = new System.Drawing.Point(59, 165);
+            this.formulaY_txt.Location = new System.Drawing.Point(66, 109);
             this.formulaY_txt.Name = "formulaY_txt";
             this.formulaY_txt.Size = new System.Drawing.Size(341, 31);
             this.formulaY_txt.TabIndex = 13;
@@ -209,29 +202,29 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(23, 168);
+            this.label6.Location = new System.Drawing.Point(16, 112);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(36, 13);
+            this.label6.Size = new System.Drawing.Size(44, 13);
             this.label6.TabIndex = 14;
-            this.label6.Text = "f2(x) =";
+            this.label6.Text = "f2(x,y) =";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(23, 407);
+            this.label7.Location = new System.Drawing.Point(261, 280);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(18, 13);
             this.label7.TabIndex = 16;
             this.label7.Text = "y=";
             // 
-            // label8
+            // result_y
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(42, 407);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(13, 13);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "0";
+            this.result_y.AutoSize = true;
+            this.result_y.Location = new System.Drawing.Point(280, 280);
+            this.result_y.Name = "result_y";
+            this.result_y.Size = new System.Drawing.Size(13, 13);
+            this.result_y.TabIndex = 15;
+            this.result_y.Text = "0";
             // 
             // tableLayoutPanel2
             // 
@@ -242,19 +235,19 @@
             this.tableLayoutPanel2.Controls.Add(this.txt10, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.txt01, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.txt00, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(72, 320);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(66, 261);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(200, 100);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(160, 100);
             this.tableLayoutPanel2.TabIndex = 17;
             // 
             // txt11
             // 
-            this.txt11.Location = new System.Drawing.Point(103, 53);
+            this.txt11.Location = new System.Drawing.Point(83, 53);
             this.txt11.Name = "txt11";
-            this.txt11.Size = new System.Drawing.Size(94, 44);
+            this.txt11.Size = new System.Drawing.Size(74, 44);
             this.txt11.TabIndex = 22;
             this.txt11.Text = "2*y";
             // 
@@ -262,15 +255,15 @@
             // 
             this.txt10.Location = new System.Drawing.Point(3, 53);
             this.txt10.Name = "txt10";
-            this.txt10.Size = new System.Drawing.Size(94, 44);
+            this.txt10.Size = new System.Drawing.Size(74, 44);
             this.txt10.TabIndex = 21;
             this.txt10.Text = "2*x";
             // 
             // txt01
             // 
-            this.txt01.Location = new System.Drawing.Point(103, 3);
+            this.txt01.Location = new System.Drawing.Point(83, 3);
             this.txt01.Name = "txt01";
-            this.txt01.Size = new System.Drawing.Size(94, 44);
+            this.txt01.Size = new System.Drawing.Size(74, 44);
             this.txt01.TabIndex = 20;
             this.txt01.Text = "1";
             // 
@@ -278,7 +271,7 @@
             // 
             this.txt00.Location = new System.Drawing.Point(3, 3);
             this.txt00.Name = "txt00";
-            this.txt00.Size = new System.Drawing.Size(94, 44);
+            this.txt00.Size = new System.Drawing.Size(74, 44);
             this.txt00.TabIndex = 19;
             this.txt00.Text = "1";
             this.txt00.TextChanged += new System.EventHandler(this.txt00_TextChanged);
@@ -286,96 +279,28 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(161, 304);
+            this.label9.Location = new System.Drawing.Point(131, 235);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(29, 13);
             this.label9.TabIndex = 18;
             this.label9.Text = "W(x)";
             // 
-            // s0_0
-            // 
-            this.s0_0.Location = new System.Drawing.Point(512, 317);
-            this.s0_0.Name = "s0_0";
-            this.s0_0.Size = new System.Drawing.Size(224, 47);
-            this.s0_0.TabIndex = 19;
-            this.s0_0.Text = "";
-            // 
-            // s0_1
-            // 
-            this.s0_1.Location = new System.Drawing.Point(512, 370);
-            this.s0_1.Name = "s0_1";
-            this.s0_1.Size = new System.Drawing.Size(224, 47);
-            this.s0_1.TabIndex = 20;
-            this.s0_1.Text = "";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(623, 301);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(18, 13);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "s0";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(370, 301);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(30, 13);
-            this.label11.TabIndex = 24;
-            this.label11.Text = "F(x0)";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
-            // 
-            // txt_f_2
-            // 
-            this.txt_f_2.Location = new System.Drawing.Point(282, 373);
-            this.txt_f_2.Name = "txt_f_2";
-            this.txt_f_2.Size = new System.Drawing.Size(224, 47);
-            this.txt_f_2.TabIndex = 23;
-            this.txt_f_2.Text = "";
-            // 
-            // txt_f_1
-            // 
-            this.txt_f_1.Location = new System.Drawing.Point(282, 317);
-            this.txt_f_1.Name = "txt_f_1";
-            this.txt_f_1.Size = new System.Drawing.Size(224, 47);
-            this.txt_f_1.TabIndex = 22;
-            this.txt_f_1.Text = "";
-            // 
-            // resotto
-            // 
-            this.resotto.AutoSize = true;
-            this.resotto.Location = new System.Drawing.Point(647, 128);
-            this.resotto.Name = "resotto";
-            this.resotto.Size = new System.Drawing.Size(36, 13);
-            this.resotto.TabIndex = 25;
-            this.resotto.Text = "f1(x) =";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1068, 554);
-            this.Controls.Add(this.resotto);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.txt_f_2);
-            this.Controls.Add(this.txt_f_1);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.s0_1);
-            this.Controls.Add(this.s0_0);
+            this.ClientSize = new System.Drawing.Size(455, 452);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.result_y);
             this.Controls.Add(this.formulaY_txt);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.formulaX_txt);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.result_txt);
+            this.Controls.Add(this.result_x);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -396,7 +321,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.Label result_txt;
+        private System.Windows.Forms.Label result_x;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RichTextBox x_start;
@@ -409,20 +334,13 @@
         private System.Windows.Forms.RichTextBox formulaY_txt;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label result_y;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.RichTextBox txt11;
         private System.Windows.Forms.RichTextBox txt10;
         private System.Windows.Forms.RichTextBox txt01;
         private System.Windows.Forms.RichTextBox txt00;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RichTextBox s0_0;
-        private System.Windows.Forms.RichTextBox s0_1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.RichTextBox txt_f_2;
-        private System.Windows.Forms.RichTextBox txt_f_1;
-        private System.Windows.Forms.Label resotto;
     }
 }
 

@@ -18,25 +18,23 @@ namespace WindowsFormsApp6
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            double x0 = Convert.ToDouble(x_start.Text);
-            double y0 = Convert.ToDouble(y_start.Text);
+            double x = Convert.ToDouble(x_start.Text);
+            double y = Convert.ToDouble(y_start.Text);
             double epsel = Convert.ToDouble(form_eps.Text);
             string formulaX = formulaX_txt.Text;
             string formulaY = formulaY_txt.Text;
-            Method_sukuchih(formulaX, formulaY, x0, y0);
-        }
-
-        public void Method_sukuchih(string formula1, string formula2, double x, double y)
-        {
             double[,] W = new double[2, 2];
             W[0, 0] = F(x, y, txt00.Text);
             W[0, 1] = F(x, y, txt01.Text);
             W[1, 0] = F(x, y, txt10.Text);
             W[1, 1] = F(x, y, txt11.Text);
-            // Заполняем матрицу
+            Method_sukuchih(formulaX, formulaY, x, y,epsel, W);
 
-            double[,] A = InverseMatrix(W);
-            PrintMatrix(A);
+        }
+
+        public void Method_sukuchih(string formula1, string formula2, double x, double y,double eps, double[,] W)
+        {
+            double[,] inverseW = InverseMatrix(W);
             // Строим обратную матрицу
 
             double[] F0 = new double[2];
@@ -44,16 +42,10 @@ namespace WindowsFormsApp6
             F0 [1] = F(x, y, formula2);
             //Значение функций, используя точки начального приближения
 
-            txt_f_1.Text = Convert.ToString(F0[0]);
-            txt_f_2.Text = Convert.ToString(F0[1]);
-
             double[] s0 = new double[2];
-            s0[0] = -(F0[0] * A[0, 0] + F0[1] * A[0, 1]);
-            s0[1] = -(F0[0] * A[1, 0] + F0[1] * A[1, 1]);
+            s0[0] = -(F0[0] * inverseW[0, 0] + F0[1] * inverseW[0, 1]);
+            s0[1] = -(F0[0] * inverseW[1, 0] + F0[1] * inverseW[1, 1]);
             //s0
-
-            s0_0.Text = Convert.ToString(s0[0]);
-            s0_1.Text = Convert.ToString(s0[1]);
 
 
 
@@ -65,15 +57,15 @@ namespace WindowsFormsApp6
             F1[1] = F(x1, y1, formula2);
             ////Значение функций, используя точки x1,y1
 
-            double[] Fy = new double[2];
-            Fy[0] = F1[0] - F0[0];
-            Fy[1] = F1[1] - F0[1];
+            double[] Y = new double[2];
+            Y[0] = F1[0] - F0[0];
+            Y[1] = F1[1] - F0[1];
             // y0
             
 
             double[] y0_a0s0 = new double [2] ;
-            y0_a0s0[0] = Fy[0] - (W[0, 0] * s0[0] + W[0, 1] * s0[1]);
-            y0_a0s0[1] = Fy[1] - (W[1, 0] * s0[0] + W[1, 1] * s0[1]);
+            y0_a0s0[0] = Y[0] - (W[0, 0] * s0[0] + W[0, 1] * s0[1]);
+            y0_a0s0[1] = Y[1] - (W[1, 0] * s0[0] + W[1, 1] * s0[1]);
 
             double s0ts0 = Math.Pow(s0[0], 2) + Math.Pow(s0[1],2);
             double[,] y0_a0s0_st0  = new double[2,2];
@@ -87,11 +79,16 @@ namespace WindowsFormsApp6
 
 
 
-            double[,] A1 = MatrixAddition(y0_a0s0_st0,W);
+            double[,] A = MatrixAddition(y0_a0s0_st0,W);
 
-            PrintMatrix(A1);
-
-            resotto.Text = Convert.ToString(y0_a0s0_st0);
+            
+            if (Math.Abs(s0[0]) > eps)
+            {
+                result_x.Text = String.Format("{0:F7}", x1);
+                result_y.Text = String.Format("{0:F7}", y1);    
+                Method_sukuchih(formula1, formula2, x1, y1,eps ,A);
+                
+            }
             
 
 

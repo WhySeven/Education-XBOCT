@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Drawing;
 namespace WindowsFormsApp6
 {
     public partial class Form1 : Form
@@ -13,11 +14,21 @@ namespace WindowsFormsApp6
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
 
         }
-
-        private void button1_Click_1(object sender, EventArgs e)
+        private void example_button_Click(object sender, EventArgs e)
         {
+            contextMenuExample.Show(this.Location.X+415,this.Location.Y+309);
+        }
+        private void choose_color_Click(object sender, EventArgs e)
+        {
+            bg_color_dialog.ShowDialog();
+            this.BackColor = bg_color_dialog.Color;
+        }
+        private void calc_button_Click_1(object sender, EventArgs e)
+        {
+            
             double x = Convert.ToDouble(x_start.Text);
             double y = Convert.ToDouble(y_start.Text);
             double epsel = Convert.ToDouble(form_eps.Text);
@@ -84,8 +95,11 @@ namespace WindowsFormsApp6
             
             if (Math.Abs(s0[0]) > eps)
             {
-                result_x.Text = String.Format("{0:F7}", x1);
-                result_y.Text = String.Format("{0:F7}", y1);    
+                result_x.Text = String.Format("{0:F3}", x1);
+                result_y.Text = String.Format("{0:F3}", y1);
+                f1_txt.Text = String.Format("{0:F3}", F1[0]);
+                f2_txt.Text = String.Format("{0:F3}", F1[1]);
+
                 Method_sukuchih(formula1, formula2, x1, y1,eps ,A);
                 
             }
@@ -148,6 +162,58 @@ namespace WindowsFormsApp6
             return T;
 
         }
+        
+        private void clear_button_Click(object sender, EventArgs e)
+        {
+            formulaX_txt.Text = "";
+            formulaY_txt.Text = "";
+            x_start.Text = "";
+            y_start.Text = "";
+            form_eps.Text = "";
+            txt00.Text = "";
+            txt01.Text = "";
+            txt10.Text = "";
+            txt11.Text = "";
+        }
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            formulaX_txt.Text = "cos(x)+y^2-3";
+            formulaY_txt.Text = "x^2*2*y+y^2-9";
+            txt00.Text = "-sin(x)";
+            txt01.Text = "2*y";
+            txt10.Text = "4*x*y";
+            txt11.Text = "2*y";
+            x_start.Text = "1";
+            y_start.Text = "1";
+            form_eps.Text = "0,0001";
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            formulaX_txt.Text = "x+y-3";
+            formulaY_txt.Text = "x^2+y^2-9";
+            txt00.Text = "1";
+            txt01.Text = "1";
+            txt10.Text = "2*x";
+            txt11.Text = "2*y";
+            x_start.Text = "1";
+            y_start.Text = "5";
+            form_eps.Text = "0,001";
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            formulaX_txt.Text = "x^2+y^2-2";
+            formulaY_txt.Text = "e^(x-1)+y^3-2";
+            txt00.Text = "2*x";
+            txt01.Text = "2*y";
+            txt10.Text = "e^(x-1)";
+            txt11.Text = "3*y^2";
+            x_start.Text = "1,5";
+            y_start.Text = "2";
+            form_eps.Text = "0,01";
+        }
+
 
         public double F(double x, double y, string formula)
         {
@@ -293,5 +359,12 @@ namespace WindowsFormsApp6
         {
 
         }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

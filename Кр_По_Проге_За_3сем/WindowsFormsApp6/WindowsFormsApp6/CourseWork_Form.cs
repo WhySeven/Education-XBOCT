@@ -16,7 +16,7 @@ namespace WindowsFormsApp6
             
         }
         
-        private void calc_button_Click(object sender, EventArgs e)
+        private void Calc_button_Click(object sender, EventArgs e)
         { 
             double x = Convert.ToDouble(x_start.Text);
             double y = Convert.ToDouble(y_start.Text);
@@ -165,19 +165,15 @@ namespace WindowsFormsApp6
             ExpressionContext context = new ExpressionContext();
             context.Imports.AddType(typeof(Math));
             context.Variables["x"] = x;
-            context.Variables["y"] = y;
-
-            IDynamicExpression eDynamic = context.CompileDynamic(formula + "+x*0");
+            context.Variables["y"] = y;            
             IGenericExpression<double> eGeneric = context.CompileGeneric<double>(formula + "+x*0");
-            double result = (double)eDynamic.Evaluate();
-            result = eGeneric.Evaluate();
-            return result;
+            return eGeneric.Evaluate();
         }
         //Метод рассчёта функции, используя строку, как формулу по которой будет произведён рассчёт.
 
 
 
-        private void clear_button_Click(object sender, EventArgs e)
+        private void Clear_button_Click(object sender, EventArgs e)
         {
             formulaX_txt.Text = "";
             formulaY_txt.Text = "";
@@ -194,7 +190,7 @@ namespace WindowsFormsApp6
             f2_txt.Text = "0";
 
         }
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        private void ToolStripMenuItem3_Click(object sender, EventArgs e)
         {
             formulaX_txt.Text = "cos(x)+y^2-3";
             formulaY_txt.Text = "x^2*2*y+y^2-9";
@@ -207,7 +203,7 @@ namespace WindowsFormsApp6
             form_eps.Text = "0,0001";
         }
 
-        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        private void ToolStripMenuItem5_Click(object sender, EventArgs e)
         {
             formulaX_txt.Text = "x+y-3";
             formulaY_txt.Text = "x^2+y^2-9";
@@ -220,7 +216,7 @@ namespace WindowsFormsApp6
             form_eps.Text = "0,001";
         }
 
-        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        private void ToolStripMenuItem4_Click(object sender, EventArgs e)
         {
             formulaX_txt.Text = "x^2+y^2-2";
             formulaY_txt.Text = "e^(x-1)+y^3-2";
@@ -232,11 +228,11 @@ namespace WindowsFormsApp6
             y_start.Text = "2";
             form_eps.Text = "0,01";
         }
-        private void example_button_Click(object sender, EventArgs e)
+        private void Example_button_Click(object sender, EventArgs e)
         {
             contextMenuExample.Show(this.Location.X + 415, this.Location.Y + 309);
         }
-        private void choose_color_Click(object sender, EventArgs e)
+        private void Choose_color_Click(object sender, EventArgs e)
         {
             bg_color_dialog.ShowDialog();
             this.BackColor = bg_color_dialog.Color;

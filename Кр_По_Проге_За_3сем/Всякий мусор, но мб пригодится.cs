@@ -103,3 +103,19 @@
             } while (Math.Abs(x - tmp) > eps);
             return a;
         }
+        public double F(double x, double y, string formula)
+        {
+            ExpressionContext context = new ExpressionContext();
+            context.Imports.AddType(typeof(Math));
+            context.Variables["x"] = x;
+            context.Variables["y"] = y;
+
+            
+            IGenericExpression<double> eGeneric = context.CompileGeneric<double>(formula + "+x*0");
+            //IDynamicExpression eDynamic = context.CompileDynamic(formula + "+x*0");
+            //double result = (double)eDynamic.Evaluate();
+            //result = eGeneric.Evaluate();
+            //return result;
+            return eGeneric.Evaluate();
+        }
+        //Метод рассчёта функции, используя строку, как формулу по которой будет произведён рассчёт.

@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp6
 {
-    partial class Form1
+    partial class CourseWork_Form
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -83,7 +83,6 @@
             this.formulaX_txt.Size = new System.Drawing.Size(339, 25);
             this.formulaX_txt.TabIndex = 0;
             this.formulaX_txt.Text = "x+y-3";
-            this.formulaX_txt.TextChanged += new System.EventHandler(this.formulaX_txt_TextChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -105,7 +104,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 228F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(341, 67);
             this.tableLayoutPanel1.TabIndex = 1;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // y_start
             // 
@@ -177,26 +175,25 @@
             this.MenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.MenuItem.Size = new System.Drawing.Size(220, 20);
             this.MenuItem.Text = "Выбрать вариант примера";
-            this.MenuItem.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(87, 22);
             this.toolStripMenuItem3.Text = "#1";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(87, 22);
             this.toolStripMenuItem4.Text = "#2";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(87, 22);
             this.toolStripMenuItem5.Text = "#3";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
@@ -226,7 +223,7 @@
             this.calc_button.TabIndex = 5;
             this.calc_button.Text = "Вычислить";
             this.calc_button.UseVisualStyleBackColor = true;
-            this.calc_button.Click += new System.EventHandler(this.calc_button_Click_1);
+            this.calc_button.Click += new System.EventHandler(this.calc_button_Click);
             // 
             // label5
             // 
@@ -320,7 +317,6 @@
             this.txt00.Size = new System.Drawing.Size(74, 42);
             this.txt00.TabIndex = 19;
             this.txt00.Text = "1";
-            this.txt00.TextChanged += new System.EventHandler(this.txt00_TextChanged);
             // 
             // label9
             // 
@@ -334,7 +330,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(168, 26);
+            this.label8.Location = new System.Drawing.Point(167, 26);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(44, 13);
             this.label8.TabIndex = 22;
@@ -343,7 +339,7 @@
             // f2_txt
             // 
             this.f2_txt.AutoSize = true;
-            this.f2_txt.Location = new System.Drawing.Point(223, 26);
+            this.f2_txt.Location = new System.Drawing.Point(222, 26);
             this.f2_txt.Name = "f2_txt";
             this.f2_txt.Size = new System.Drawing.Size(13, 13);
             this.f2_txt.TabIndex = 21;
@@ -352,7 +348,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(168, 0);
+            this.label11.Location = new System.Drawing.Point(167, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(44, 13);
             this.label11.TabIndex = 20;
@@ -361,7 +357,7 @@
             // f1_txt
             // 
             this.f1_txt.AutoSize = true;
-            this.f1_txt.Location = new System.Drawing.Point(223, 0);
+            this.f1_txt.Location = new System.Drawing.Point(222, 0);
             this.f1_txt.Name = "f1_txt";
             this.f1_txt.Size = new System.Drawing.Size(13, 13);
             this.f1_txt.TabIndex = 19;
@@ -390,7 +386,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.33334F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 118F));
             this.tableLayoutPanel4.Controls.Add(this.f1_txt, 3, 0);
             this.tableLayoutPanel4.Controls.Add(this.result_y, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.label8, 2, 1);
@@ -464,7 +460,7 @@
             this.label10.TabIndex = 29;
             this.label10.Text = "Цвет Фона";
             // 
-            // Form1
+            // CourseWork_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -478,9 +474,9 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Name = "CourseWork_Form";
+            this.Text = "Курсовая Работа";
+            this.Load += new System.EventHandler(this.CourseWork_Form_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.contextMenuExample.ResumeLayout(false);

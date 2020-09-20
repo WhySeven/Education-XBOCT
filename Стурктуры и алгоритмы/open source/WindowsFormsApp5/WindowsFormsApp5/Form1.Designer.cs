@@ -49,7 +49,6 @@
             this.graph_space.Size = new System.Drawing.Size(701, 701);
             this.graph_space.TabIndex = 0;
             this.graph_space.TabStop = false;
-            this.graph_space.Click += new System.EventHandler(this.graph_space_Click);
             // 
             // txt_login
             // 
@@ -68,7 +67,6 @@
             this.l_log.Size = new System.Drawing.Size(38, 13);
             this.l_log.TabIndex = 2;
             this.l_log.Text = "Логин";
-            this.l_log.Click += new System.EventHandler(this.label1_Click);
             // 
             // l_pass
             // 

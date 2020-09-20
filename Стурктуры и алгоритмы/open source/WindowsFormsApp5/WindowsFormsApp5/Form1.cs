@@ -83,13 +83,5 @@ namespace WindowsFormsApp5
                 e.Handled = true;
             }
         }
-        private void graph_space_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

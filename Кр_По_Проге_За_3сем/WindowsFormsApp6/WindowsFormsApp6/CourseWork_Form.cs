@@ -1,6 +1,7 @@
 ﻿using Flee.PublicTypes;
 using System;
 using System.Windows.Forms;
+using System.IO;
 
 namespace WindowsFormsApp6
 {
@@ -11,11 +12,6 @@ namespace WindowsFormsApp6
             InitializeComponent();
         }
 
-        private void CourseWork_Form_Load (object sender, EventArgs e)
-        {
-            
-        }
-        
         private void Calc_button_Click(object sender, EventArgs e)
         { 
             double x = Convert.ToDouble(x_start.Text);
@@ -23,7 +19,7 @@ namespace WindowsFormsApp6
             double epsel = Convert.ToDouble(form_eps.Text);
             string formulaX = formulaX_txt.Text;
             string formulaY = formulaY_txt.Text;
-
+            //Создание переменных.
             
             double[,] W = new double[2, 2];
             W[0, 0] = F(x, y, txt00.Text);
@@ -237,5 +233,111 @@ namespace WindowsFormsApp6
             bg_color_dialog.ShowDialog();
             this.BackColor = bg_color_dialog.Color;
         }
+
+
+        //Начало системы авторизации
+        private void Registration_button_Click(object sender, EventArgs e)
+        {
+            using (StreamWriter sw = new StreamWriter("log.txt", true, System.Text.Encoding.Default)){}
+
+            if (Login_field.Text != "" && Password_field.Text != "")
+            {
+                bool check = true;
+                using (StreamReader sr = new StreamReader("log.txt", System.Text.Encoding.Default))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        string[] words = line.Split(' ');
+                        if (words[0] == Login_field.Text)
+                        {
+                            MessageBox.Show("Такой пользователь уже зарегистрирован");
+                            check = false;
+                        }
+                    }
+
+                }
+                using (StreamWriter sw = new StreamWriter("log.txt", true, System.Text.Encoding.Default))
+                {
+                    if(check != false)
+                        sw.Write(Login_field.Text + " " + Password_field.Text + "\n");
+                }
+            }
+        }
+        private void Login_button_Click(object sender, EventArgs e)
+        {
+            bool check = false;
+            if (Login_field.Text != "" && Password_field.Text != "")
+            {
+                using (StreamReader sr = new StreamReader("log.txt", System.Text.Encoding.Default))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        string[] words = line.Split(' ');
+                        if (words[0] == Login_field.Text && words[1] == Password_field.Text)
+                        {
+                            calc_button.Enabled = true;
+                            example_button.Enabled = true;
+                            clear_button.Enabled = true;
+                            Name_label.Text = Login_field.Text;
+                            Login_field.Text = "";
+                            Password_field.Text = "";
+                            Login_field.Visible = false;
+                            Password_field.Visible = false;
+                            Login_button.Visible = false;
+                            Registration_button.Visible = false;
+                            Exit_button.Visible = true;
+                            Login_label.Visible = false;
+                            Password_label.Visible = false;
+                            Name_label.Visible = true;
+                            Name_label_pre.Visible = true;
+                            check = true;
+                        }
+                    }
+                    if (check != true)
+                        MessageBox.Show("Неверный логин и/или пароль");
+                }
+            }
+        }
+        private void Exit_button_Click(object sender, EventArgs e)
+        {
+            calc_button.Enabled = false;
+            example_button.Enabled = false;
+            clear_button.Enabled = false;
+            Login_button.Visible = true;
+            Registration_button.Visible = true;
+            Exit_button.Visible = false;
+            Login_field.Visible = true;
+            Password_field.Visible = true;
+            Login_label.Visible = true;
+            Password_label.Visible = true;
+            Name_label.Visible = false;
+            Name_label_pre.Visible = false;
+            Name_label.Text = "User";
+        }
+        private void Login_field_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!((e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 48 && e.KeyChar <= 57) || e.KeyChar == 8))
+            {
+                e.Handled = true;
+            }
+        }
+        private void Password_field_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!((e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 48 && e.KeyChar <= 57) || e.KeyChar == 8))
+            {
+                e.Handled = true;
+            }
+        }
+
+
+
+
+        //Ограничение возможных символов для ввода.
+
+
+        //Конец системы авторизации.
+
     }
 }

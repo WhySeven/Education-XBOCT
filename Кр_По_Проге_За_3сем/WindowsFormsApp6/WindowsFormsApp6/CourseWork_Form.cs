@@ -145,13 +145,6 @@ namespace WindowsFormsApp6
             T[1, 0] = W[0, 1];
             return T;
         }
-        public void PrintMatrix(double[,] W)
-        {
-            txt00.Text = Convert.ToString(W[0, 0]);
-            txt01.Text = Convert.ToString(W[0, 1]);
-            txt10.Text = Convert.ToString(W[1, 0]);
-            txt11.Text = Convert.ToString(W[1, 1]);
-        }
         //Действия с матрицами.
 
 
@@ -330,10 +323,6 @@ namespace WindowsFormsApp6
                 e.Handled = true;
             }
         }
-
-
-
-
         //Ограничение возможных символов для ввода.
 
 

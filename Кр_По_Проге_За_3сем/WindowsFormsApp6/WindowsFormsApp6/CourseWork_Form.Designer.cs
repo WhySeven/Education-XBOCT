@@ -74,8 +74,8 @@
             this.Password_label = new System.Windows.Forms.Label();
             this.Password_field = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.Registration_button = new System.Windows.Forms.Button();
             this.Login_button = new System.Windows.Forms.Button();
+            this.Registration_button = new System.Windows.Forms.Button();
             this.Exit_button = new System.Windows.Forms.Button();
             this.Name_label_pre = new System.Windows.Forms.Label();
             this.Name_label = new System.Windows.Forms.Label();
@@ -225,7 +225,7 @@
             // result_x
             // 
             this.result_x.AutoSize = true;
-            this.result_x.Location = new System.Drawing.Point(34, 0);
+            this.result_x.Location = new System.Drawing.Point(33, 0);
             this.result_x.Name = "result_x";
             this.result_x.Size = new System.Drawing.Size(13, 13);
             this.result_x.TabIndex = 3;
@@ -294,7 +294,7 @@
             // result_y
             // 
             this.result_y.AutoSize = true;
-            this.result_y.Location = new System.Drawing.Point(34, 27);
+            this.result_y.Location = new System.Drawing.Point(33, 27);
             this.result_y.Name = "result_y";
             this.result_y.Size = new System.Drawing.Size(13, 13);
             this.result_y.TabIndex = 15;
@@ -365,7 +365,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(188, 27);
+            this.label8.Location = new System.Drawing.Point(187, 27);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(44, 13);
             this.label8.TabIndex = 22;
@@ -374,7 +374,7 @@
             // f2_txt
             // 
             this.f2_txt.AutoSize = true;
-            this.f2_txt.Location = new System.Drawing.Point(241, 27);
+            this.f2_txt.Location = new System.Drawing.Point(240, 27);
             this.f2_txt.Name = "f2_txt";
             this.f2_txt.Size = new System.Drawing.Size(13, 13);
             this.f2_txt.TabIndex = 21;
@@ -383,7 +383,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(188, 0);
+            this.label11.Location = new System.Drawing.Point(187, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(44, 13);
             this.label11.TabIndex = 20;
@@ -392,7 +392,7 @@
             // f1_txt
             // 
             this.f1_txt.AutoSize = true;
-            this.f1_txt.Location = new System.Drawing.Point(241, 0);
+            this.f1_txt.Location = new System.Drawing.Point(240, 0);
             this.f1_txt.Name = "f1_txt";
             this.f1_txt.Size = new System.Drawing.Size(13, 13);
             this.f1_txt.TabIndex = 19;
@@ -421,7 +421,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.33334F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel4.Controls.Add(this.f1_txt, 3, 0);
             this.tableLayoutPanel4.Controls.Add(this.result_y, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.label8, 2, 1);
@@ -573,17 +573,6 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(265, 27);
             this.tableLayoutPanel7.TabIndex = 31;
             // 
-            // Registration_button
-            // 
-            this.Registration_button.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Registration_button.Location = new System.Drawing.Point(3, 3);
-            this.Registration_button.Name = "Registration_button";
-            this.Registration_button.Size = new System.Drawing.Size(126, 21);
-            this.Registration_button.TabIndex = 1;
-            this.Registration_button.Text = "Регистрация";
-            this.Registration_button.UseVisualStyleBackColor = true;
-            this.Registration_button.Click += new System.EventHandler(this.Registration_button_Click);
-            // 
             // Login_button
             // 
             this.Login_button.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -594,6 +583,17 @@
             this.Login_button.Text = "Вход";
             this.Login_button.UseVisualStyleBackColor = true;
             this.Login_button.Click += new System.EventHandler(this.Login_button_Click);
+            // 
+            // Registration_button
+            // 
+            this.Registration_button.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Registration_button.Location = new System.Drawing.Point(3, 3);
+            this.Registration_button.Name = "Registration_button";
+            this.Registration_button.Size = new System.Drawing.Size(126, 21);
+            this.Registration_button.TabIndex = 1;
+            this.Registration_button.Text = "Регистрация";
+            this.Registration_button.UseVisualStyleBackColor = true;
+            this.Registration_button.Click += new System.EventHandler(this.Registration_button_Click);
             // 
             // Exit_button
             // 

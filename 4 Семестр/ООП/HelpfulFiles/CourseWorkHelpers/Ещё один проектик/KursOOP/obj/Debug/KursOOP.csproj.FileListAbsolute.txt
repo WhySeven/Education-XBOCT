@@ -1,0 +1,15 @@
+C:\Users\dyaga\source\repos\KursOOP\KursOOP\bin\Debug\KursOOP.exe.config
+C:\Users\dyaga\source\repos\KursOOP\KursOOP\bin\Debug\KursOOP.exe
+C:\Users\dyaga\source\repos\KursOOP\KursOOP\bin\Debug\KursOOP.pdb
+C:\Users\dyaga\source\repos\KursOOP\KursOOP\obj\Debug\KursOOP.csprojAssemblyReference.cache
+C:\Users\dyaga\source\repos\KursOOP\KursOOP\obj\Debug\MainWindow.g.cs
+C:\Users\dyaga\source\repos\KursOOP\KursOOP\obj\Debug\App.g.cs
+C:\Users\dyaga\source\repos\KursOOP\KursOOP\obj\Debug\KursOOP_MarkupCompile.cache
+C:\Users\dyaga\source\repos\KursOOP\KursOOP\obj\Debug\KursOOP_MarkupCompile.lref
+C:\Users\dyaga\source\repos\KursOOP\KursOOP\obj\Debug\MainWindow.baml
+C:\Users\dyaga\source\repos\KursOOP\KursOOP\obj\Debug\KursOOP.g.resources
+C:\Users\dyaga\source\repos\KursOOP\KursOOP\obj\Debug\KursOOP.Properties.Resources.resources
+C:\Users\dyaga\source\repos\KursOOP\KursOOP\obj\Debug\KursOOP.csproj.GenerateResource.cache
+C:\Users\dyaga\source\repos\KursOOP\KursOOP\obj\Debug\KursOOP.csproj.CoreCompileInputs.cache
+C:\Users\dyaga\source\repos\KursOOP\KursOOP\obj\Debug\KursOOP.exe
+C:\Users\dyaga\source\repos\KursOOP\KursOOP\obj\Debug\KursOOP.pdb

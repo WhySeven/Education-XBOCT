@@ -1,0 +1,6 @@
+D:\Документы\TSU\ООП\Кусрач\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+D:\Документы\TSU\ООП\Кусрач\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+D:\Документы\TSU\ООП\Кусрач\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+D:\Документы\TSU\ООП\Кусрач\ConsoleApp1\obj\Debug\ObjectOriented.csproj.CoreCompileInputs.cache
+D:\Документы\TSU\ООП\Кусрач\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+D:\Документы\TSU\ООП\Кусрач\ConsoleApp1\obj\Debug\ConsoleApp1.pdb

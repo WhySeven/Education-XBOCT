@@ -1,0 +1,5 @@
+D:\Документы\TSU\ООП\Кусрач\MonteKursa\Debug\MonteKursa.vcxprojAssemblyReference.cache
+D:\Документы\TSU\ООП\Кусрач\MonteKursa\Debug\MonteKursa.MonteCarlosProc.resources
+D:\Документы\TSU\ООП\Кусрач\MonteKursa\Debug\MonteKursa.vcxproj.GenerateResource.cache
+D:\Документы\TSU\ООП\Кусрач\MonteKursa\Debug\MonteKursa.exe
+D:\Документы\TSU\ООП\Кусрач\MonteKursa\Debug\MonteKursa.pdb

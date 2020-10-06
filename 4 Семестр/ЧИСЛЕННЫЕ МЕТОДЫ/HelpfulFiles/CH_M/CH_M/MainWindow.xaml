@@ -1,0 +1,26 @@
+﻿<Window x:Class="CH_M.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CH_M"
+        mc:Ignorable="d"
+        Title="Численное решение дифференциальных уравнений" Height="278" Width="509">
+    <Grid Margin="0,0,10,0">
+        <CheckBox x:Name="checkBox1" Content="метод Адамса" HorizontalAlignment="Left" Margin="24,39,0,0" VerticalAlignment="Top" Checked="checkBox1_Checked"/>
+        <CheckBox x:Name="checkBox2" Content="метод Рунге-Кутты" HorizontalAlignment="Left" Margin="24,59,0,0" VerticalAlignment="Top" Checked="checkBox2_Checked"/>
+        <Label Content="X0:" HorizontalAlignment="Left" Margin="22,91,0,0" VerticalAlignment="Top"/>
+        <Label Content="Y0:" HorizontalAlignment="Left" Margin="22,116,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="53,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" Height="20"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="53,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" Height="20"/>
+        <Label Content="Xn:" HorizontalAlignment="Left" Margin="22,141,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Margin="53,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" Height="20"/>
+        <DataGrid x:Name="grid" HorizontalAlignment="Left" Height="195" Margin="189,10,0,0" VerticalAlignment="Top" Width="277"/>
+        <Label x:Name="label" Content="время выполнения:" HorizontalAlignment="Left" Margin="189,210,0,0" VerticalAlignment="Top"/>
+        <Label Content="y'=2x^2+e^y+y" HorizontalAlignment="Left" Margin="25,10,0,0" VerticalAlignment="Top" FontStyle="Italic"/>
+        <Button Content="Решить уравнение" HorizontalAlignment="Left" Margin="25,213,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Label Content="h:" HorizontalAlignment="Left" Margin="22,168,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.693,1.491"/>
+        <TextBox x:Name="textBox4" HorizontalAlignment="Left" Margin="53,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" Height="20"/>
+
+    </Grid>
+</Window>

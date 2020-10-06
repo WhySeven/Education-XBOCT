@@ -1,0 +1,7 @@
+D:\Документы\TSU\ООП\Кусрач\Procedure\bin\Release\Procedure.exe.config
+D:\Документы\TSU\ООП\Кусрач\Procedure\bin\Release\Procedure.exe
+D:\Документы\TSU\ООП\Кусрач\Procedure\bin\Release\Procedure.pdb
+D:\Документы\TSU\ООП\Кусрач\Procedure\obj\Release\Procedure.csprojAssemblyReference.cache
+D:\Документы\TSU\ООП\Кусрач\Procedure\obj\Release\Procedure.csproj.CoreCompileInputs.cache
+D:\Документы\TSU\ООП\Кусрач\Procedure\obj\Release\Procedure.exe
+D:\Документы\TSU\ООП\Кусрач\Procedure\obj\Release\Procedure.pdb

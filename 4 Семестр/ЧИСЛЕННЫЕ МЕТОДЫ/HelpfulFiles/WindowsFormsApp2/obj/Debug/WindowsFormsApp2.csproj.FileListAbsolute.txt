@@ -1,0 +1,10 @@
+D:\Документы\TSU\ЧМ\Кусрач\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe.config
+D:\Документы\TSU\ЧМ\Кусрач\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe
+D:\Документы\TSU\ЧМ\Кусрач\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.pdb
+D:\Документы\TSU\ЧМ\Кусрач\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojAssemblyReference.cache
+D:\Документы\TSU\ЧМ\Кусрач\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Form1.resources
+D:\Документы\TSU\ЧМ\Кусрач\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+D:\Документы\TSU\ЧМ\Кусрач\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.GenerateResource.cache
+D:\Документы\TSU\ЧМ\Кусрач\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CoreCompileInputs.cache
+D:\Документы\TSU\ЧМ\Кусрач\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
+D:\Документы\TSU\ЧМ\Кусрач\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "ProcedureOrientedProgram/1.0.0": {
+        "runtime": {
+          "ProcedureOrientedProgram.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ProcedureOrientedProgram/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

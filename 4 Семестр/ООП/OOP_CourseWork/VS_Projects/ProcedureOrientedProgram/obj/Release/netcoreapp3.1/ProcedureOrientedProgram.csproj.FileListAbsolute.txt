@@ -1,0 +1,12 @@
+C:\Users\adxud\source\repos\OOP_CourseWork\VS_Projects\ProcedureOrientedProgram\ProcedureOrientedProgram\bin\Release\netcoreapp3.1\ProcedureOrientedProgram.exe
+C:\Users\adxud\source\repos\OOP_CourseWork\VS_Projects\ProcedureOrientedProgram\ProcedureOrientedProgram\bin\Release\netcoreapp3.1\ProcedureOrientedProgram.deps.json
+C:\Users\adxud\source\repos\OOP_CourseWork\VS_Projects\ProcedureOrientedProgram\ProcedureOrientedProgram\bin\Release\netcoreapp3.1\ProcedureOrientedProgram.runtimeconfig.json
+C:\Users\adxud\source\repos\OOP_CourseWork\VS_Projects\ProcedureOrientedProgram\ProcedureOrientedProgram\bin\Release\netcoreapp3.1\ProcedureOrientedProgram.runtimeconfig.dev.json
+C:\Users\adxud\source\repos\OOP_CourseWork\VS_Projects\ProcedureOrientedProgram\ProcedureOrientedProgram\bin\Release\netcoreapp3.1\ProcedureOrientedProgram.dll
+C:\Users\adxud\source\repos\OOP_CourseWork\VS_Projects\ProcedureOrientedProgram\ProcedureOrientedProgram\bin\Release\netcoreapp3.1\ProcedureOrientedProgram.pdb
+C:\Users\adxud\source\repos\OOP_CourseWork\VS_Projects\ProcedureOrientedProgram\ProcedureOrientedProgram\obj\Release\netcoreapp3.1\ProcedureOrientedProgram.AssemblyInfoInputs.cache
+C:\Users\adxud\source\repos\OOP_CourseWork\VS_Projects\ProcedureOrientedProgram\ProcedureOrientedProgram\obj\Release\netcoreapp3.1\ProcedureOrientedProgram.AssemblyInfo.cs
+C:\Users\adxud\source\repos\OOP_CourseWork\VS_Projects\ProcedureOrientedProgram\ProcedureOrientedProgram\obj\Release\netcoreapp3.1\ProcedureOrientedProgram.csproj.CoreCompileInputs.cache
+C:\Users\adxud\source\repos\OOP_CourseWork\VS_Projects\ProcedureOrientedProgram\ProcedureOrientedProgram\obj\Release\netcoreapp3.1\ProcedureOrientedProgram.dll
+C:\Users\adxud\source\repos\OOP_CourseWork\VS_Projects\ProcedureOrientedProgram\ProcedureOrientedProgram\obj\Release\netcoreapp3.1\ProcedureOrientedProgram.pdb
+C:\Users\adxud\source\repos\OOP_CourseWork\VS_Projects\ProcedureOrientedProgram\ProcedureOrientedProgram\obj\Release\netcoreapp3.1\ProcedureOrientedProgram.genruntimeconfig.cache

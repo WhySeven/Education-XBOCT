@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\adxud\\Desktop\\Education_Files\\Ed_dolgi\\4 Семестр\\ООП\\OOP_CourseWork\\VS_Projects\\ObjectOrientedProgram\\ObjectOrientedProgram.csproj",
+      "projectUniqueName": "C:\\Users\\adxud\\Desktop\\Education_Files\\Education-XBOCT\\4 Семестр\\ООП\\CourseWork\\VS_Projects\\ObjectOrientedProgram\\ObjectOrientedProgram.csproj",
       "projectName": "ObjectOrientedProgram",
-      "projectPath": "C:\\Users\\adxud\\Desktop\\Education_Files\\Ed_dolgi\\4 Семестр\\ООП\\OOP_CourseWork\\VS_Projects\\ObjectOrientedProgram\\ObjectOrientedProgram.csproj",
+      "projectPath": "C:\\Users\\adxud\\Desktop\\Education_Files\\Education-XBOCT\\4 Семестр\\ООП\\CourseWork\\VS_Projects\\ObjectOrientedProgram\\ObjectOrientedProgram.csproj",
       "packagesPath": "C:\\Users\\adxud\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\adxud\\Desktop\\Education_Files\\Ed_dolgi\\4 Семестр\\ООП\\OOP_CourseWork\\VS_Projects\\ObjectOrientedProgram\\obj\\",
+      "outputPath": "C:\\Users\\adxud\\Desktop\\Education_Files\\Education-XBOCT\\4 Семестр\\ООП\\CourseWork\\VS_Projects\\ObjectOrientedProgram\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

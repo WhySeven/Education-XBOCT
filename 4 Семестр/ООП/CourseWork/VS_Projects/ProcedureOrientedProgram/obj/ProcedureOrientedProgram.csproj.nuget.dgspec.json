@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\adxud\\source\\repos\\OOP_CourseWork\\VS_Projects\\ProcedureOrientedProgram\\ProcedureOrientedProgram\\ProcedureOrientedProgram.csproj": {}
+    "C:\\Users\\adxud\\Desktop\\Education_Files\\Education-XBOCT\\4 Семестр\\ООП\\CourseWork\\VS_Projects\\ProcedureOrientedProgram\\ProcedureOrientedProgram.csproj": {}
   },
   "projects": {
-    "C:\\Users\\adxud\\source\\repos\\OOP_CourseWork\\VS_Projects\\ProcedureOrientedProgram\\ProcedureOrientedProgram\\ProcedureOrientedProgram.csproj": {
+    "C:\\Users\\adxud\\Desktop\\Education_Files\\Education-XBOCT\\4 Семестр\\ООП\\CourseWork\\VS_Projects\\ProcedureOrientedProgram\\ProcedureOrientedProgram.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\adxud\\source\\repos\\OOP_CourseWork\\VS_Projects\\ProcedureOrientedProgram\\ProcedureOrientedProgram\\ProcedureOrientedProgram.csproj",
+        "projectUniqueName": "C:\\Users\\adxud\\Desktop\\Education_Files\\Education-XBOCT\\4 Семестр\\ООП\\CourseWork\\VS_Projects\\ProcedureOrientedProgram\\ProcedureOrientedProgram.csproj",
         "projectName": "ProcedureOrientedProgram",
-        "projectPath": "C:\\Users\\adxud\\source\\repos\\OOP_CourseWork\\VS_Projects\\ProcedureOrientedProgram\\ProcedureOrientedProgram\\ProcedureOrientedProgram.csproj",
+        "projectPath": "C:\\Users\\adxud\\Desktop\\Education_Files\\Education-XBOCT\\4 Семестр\\ООП\\CourseWork\\VS_Projects\\ProcedureOrientedProgram\\ProcedureOrientedProgram.csproj",
         "packagesPath": "C:\\Users\\adxud\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\adxud\\source\\repos\\OOP_CourseWork\\VS_Projects\\ProcedureOrientedProgram\\ProcedureOrientedProgram\\obj\\",
+        "outputPath": "C:\\Users\\adxud\\Desktop\\Education_Files\\Education-XBOCT\\4 Семестр\\ООП\\CourseWork\\VS_Projects\\ProcedureOrientedProgram\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

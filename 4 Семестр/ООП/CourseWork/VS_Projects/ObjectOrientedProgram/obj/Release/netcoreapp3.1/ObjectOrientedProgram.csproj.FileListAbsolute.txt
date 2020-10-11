@@ -24,3 +24,16 @@ C:\Users\adxud\Desktop\Education_Files\Ed_dolgi\4 Семестр\ООП\OOP_Cour
 C:\Users\adxud\Desktop\Education_Files\Ed_dolgi\4 Семестр\ООП\OOP_CourseWork\VS_Projects\ObjectOrientedProgram\obj\Release\netcoreapp3.1\ObjectOrientedProgram.dll
 C:\Users\adxud\Desktop\Education_Files\Ed_dolgi\4 Семестр\ООП\OOP_CourseWork\VS_Projects\ObjectOrientedProgram\obj\Release\netcoreapp3.1\ObjectOrientedProgram.pdb
 C:\Users\adxud\Desktop\Education_Files\Ed_dolgi\4 Семестр\ООП\OOP_CourseWork\VS_Projects\ObjectOrientedProgram\obj\Release\netcoreapp3.1\ObjectOrientedProgram.genruntimeconfig.cache
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ObjectOrientedProgram\bin\Release\netcoreapp3.1\ObjectOrientedProgram.exe
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ObjectOrientedProgram\bin\Release\netcoreapp3.1\ObjectOrientedProgram.deps.json
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ObjectOrientedProgram\bin\Release\netcoreapp3.1\ObjectOrientedProgram.runtimeconfig.json
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ObjectOrientedProgram\bin\Release\netcoreapp3.1\ObjectOrientedProgram.runtimeconfig.dev.json
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ObjectOrientedProgram\bin\Release\netcoreapp3.1\ObjectOrientedProgram.dll
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ObjectOrientedProgram\bin\Release\netcoreapp3.1\ObjectOrientedProgram.pdb
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ObjectOrientedProgram\obj\Release\netcoreapp3.1\ObjectOrientedProgram.csprojAssemblyReference.cache
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ObjectOrientedProgram\obj\Release\netcoreapp3.1\ObjectOrientedProgram.AssemblyInfoInputs.cache
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ObjectOrientedProgram\obj\Release\netcoreapp3.1\ObjectOrientedProgram.AssemblyInfo.cs
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ObjectOrientedProgram\obj\Release\netcoreapp3.1\ObjectOrientedProgram.csproj.CoreCompileInputs.cache
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ObjectOrientedProgram\obj\Release\netcoreapp3.1\ObjectOrientedProgram.dll
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ObjectOrientedProgram\obj\Release\netcoreapp3.1\ObjectOrientedProgram.pdb
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ObjectOrientedProgram\obj\Release\netcoreapp3.1\ObjectOrientedProgram.genruntimeconfig.cache

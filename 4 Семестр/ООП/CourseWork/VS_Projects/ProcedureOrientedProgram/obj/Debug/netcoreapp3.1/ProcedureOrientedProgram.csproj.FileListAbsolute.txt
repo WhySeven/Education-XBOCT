@@ -11,3 +11,16 @@ C:\Users\adxud\source\repos\OOP_CourseWork\VS_Projects\ProcedureOrientedProgram\
 C:\Users\adxud\source\repos\OOP_CourseWork\VS_Projects\ProcedureOrientedProgram\ProcedureOrientedProgram\obj\Debug\netcoreapp3.1\ProcedureOrientedProgram.dll
 C:\Users\adxud\source\repos\OOP_CourseWork\VS_Projects\ProcedureOrientedProgram\ProcedureOrientedProgram\obj\Debug\netcoreapp3.1\ProcedureOrientedProgram.pdb
 C:\Users\adxud\source\repos\OOP_CourseWork\VS_Projects\ProcedureOrientedProgram\ProcedureOrientedProgram\obj\Debug\netcoreapp3.1\ProcedureOrientedProgram.genruntimeconfig.cache
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ProcedureOrientedProgram\bin\Debug\netcoreapp3.1\ProcedureOrientedProgram.exe
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ProcedureOrientedProgram\bin\Debug\netcoreapp3.1\ProcedureOrientedProgram.deps.json
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ProcedureOrientedProgram\bin\Debug\netcoreapp3.1\ProcedureOrientedProgram.runtimeconfig.json
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ProcedureOrientedProgram\bin\Debug\netcoreapp3.1\ProcedureOrientedProgram.runtimeconfig.dev.json
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ProcedureOrientedProgram\bin\Debug\netcoreapp3.1\ProcedureOrientedProgram.dll
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ProcedureOrientedProgram\bin\Debug\netcoreapp3.1\ProcedureOrientedProgram.pdb
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ProcedureOrientedProgram\obj\Debug\netcoreapp3.1\ProcedureOrientedProgram.csprojAssemblyReference.cache
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ProcedureOrientedProgram\obj\Debug\netcoreapp3.1\ProcedureOrientedProgram.AssemblyInfoInputs.cache
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ProcedureOrientedProgram\obj\Debug\netcoreapp3.1\ProcedureOrientedProgram.AssemblyInfo.cs
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ProcedureOrientedProgram\obj\Debug\netcoreapp3.1\ProcedureOrientedProgram.csproj.CoreCompileInputs.cache
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ProcedureOrientedProgram\obj\Debug\netcoreapp3.1\ProcedureOrientedProgram.dll
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ProcedureOrientedProgram\obj\Debug\netcoreapp3.1\ProcedureOrientedProgram.pdb
+C:\Users\adxud\Desktop\Education_Files\Education-XBOCT\4 Семестр\ООП\CourseWork\VS_Projects\ProcedureOrientedProgram\obj\Debug\netcoreapp3.1\ProcedureOrientedProgram.genruntimeconfig.cache

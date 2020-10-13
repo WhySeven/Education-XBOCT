@@ -1,121 +1,46 @@
 #include <iostream>
 using namespace std;
+
 class Complex
 {
-private:
+public:
+    // Поля
     int imaginary;
     int real;
-public:
-    Complex()
-    {
-        this-> imaginary = 0;
-        this-> real = 0;
-    }
-    Complex(int imaginary)
-    {
-        this->imaginary = imaginary;
-        real = 0;
-    }
-    Complex(int imaginary, int real)
-    {
-        this->imaginary = imaginary;
-        this->real = real;
-    }
+    // Конструкторы
+    Complex();
+    Complex(int imaginary);
+    Complex(int imaginary, int real);
+    Complex(const Complex& c);
+
     //Перегрузка операторов
     // +
-    Complex operator+(Complex item) 
-    {
-        return Complex(imaginary + item.imaginary, real + item.real);
-    }
-    Complex operator+(int value)
-    {
-        return Complex(imaginary, real + value);
-    }
-    friend Complex operator+(int value, Complex item)
-    {
-        return Complex(item.imaginary, item.real + value);
-    }
+    const Complex operator+(const Complex& item) const;  
+    const Complex operator+(const int& value) const;  
+    friend const Complex operator+(const int& value, const Complex& item);
 
-   
     // -
-    Complex operator-(Complex item)
-    {
-        return Complex(imaginary - item.imaginary, real - item.real);
-    }
-    Complex operator-(int value)
-    {
-        return Complex(imaginary, real - value);
-    }
-    friend Complex operator-(int value, Complex item)
-    {
-        return Complex(item.imaginary, item.real - value);
-    }
-
+    const Complex operator-(const Complex& item) const;
+    const Complex operator-(const int& value) const;
+    friend const Complex operator-(const int& value, const Complex& item);
 
     // +=
-    Complex& operator+=(Complex item) 
-    {
-        real += item.real;
-        imaginary += item.imaginary;
-        return *this;
-    }
-    Complex& operator+=(int value)
-    {
-        real += value;
-        return *this;
-    }
-    friend int operator+=(int& value, Complex item)
-    {
-        value += item.real;
-        std::cout << "The imaginary part has been lost due to assigning of a complex number to real.\n";
-        return value;
-    }
+    Complex& operator+=(const Complex& item);
+    Complex& operator+=(const int& value);
+
     // -=
-    Complex& operator-=(Complex item) 
-    {
-        real -= item.real;
-        imaginary -= item.imaginary;
-        return *this;
-    }
-    Complex& operator-=(int value)
-    {
-        real -= value;
-        return *this;
-    }
-    friend int operator-=(int& value, Complex item)
-    {
-        value -= item.real;
-        std::cout << "The imaginary part has been lost due to assigning of a complex number to real.\n";
-        return value;
-    }
+    Complex& operator-=(const Complex& item);
+    Complex& operator-=(const int& value);
 
     // =
-    Complex& operator=(Complex item) {
-        real = item.real;
-        imaginary = item.imaginary;
-        return *this;
-    }
-    Complex& operator=(int value) 
-    {
-        real = value;
-        imaginary = 0;
-        return *this;
-    }
-    /*int& operator=(Complex& item)
-    {
-        std::cout << "The imaginary part has been lost due to assigning of a complex number to real.\n";
-        return item.real;
-    }*/
-    int extract_real()
-    {
-        return real;
-    }
+    Complex& operator=(const Complex& item);
+    Complex& operator=(const int& value);
+
+    // extract_real
+    int extract_real();
+
     // <<
-    friend ostream& operator<<(ostream& str, Complex item)
-    {
-        str << "imaginary = " << item.imaginary << ", real=" << item.real<<";\n";
-        return str;
-    }
+    friend ostream& operator<<(ostream& os, const Complex& item);
 };
 
 

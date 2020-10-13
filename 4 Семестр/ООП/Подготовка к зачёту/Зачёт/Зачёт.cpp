@@ -14,12 +14,10 @@ int main()
     Complex b (5);
     Complex c (0,0);
     int d = 10;
-    c = d + a;
     std::cout << c << "d = " << d <<";\n";
-    c = d + a - d;
+    c = d + a + a - d - a;
     std::cout << c << "d = " << d <<";\n";
     c += b+a;
-    d += c;
     std::cout << c << "d = " << d << ";\n";
     d = c.extract_real();
     std::cout << a << b << c << "\nd = " << d;
@@ -31,11 +29,11 @@ int main()
     Array array(n);
     for (int i = 0; i < n;i++)
     {
-        array.Assign(i,i);
+        array.Assign(i,Complex(i));
     }
     for (int i = 10; i <= 20;i++)
     {
-        array.Add(i);
+        array.Add(Complex(i));
     }
     array.Print();
     Point p1 (1, 1);

@@ -5,16 +5,16 @@ class Array
 {
 private:
     int size;
-    int *arr;
+    Complex *arr;
 public:
     Array(int size)
     {
         this->size = size;
-        arr = (int*)malloc(this->size * sizeof(int));
+        arr = (Complex*)malloc(this->size * sizeof(int)*2);
     }
     void Print(int i)
     {
-        std::cout << i << " = " << arr[i] << ";\n";
+        std::cout << "i[" << i << "]" << " = " << arr[i];
     }
     void Print()
     {
@@ -24,15 +24,15 @@ public:
             Print(i);
         }
     }
-    void Assign(int number, int value)
+    void Assign(int number, Complex c)
     {
-        arr[number] = value;
+        arr[number] = c;
     }
-    void Add(int value)
+    void Add(Complex c)
     {
         size++;
-        int *tmp = (int*)realloc(arr, size * sizeof(int));
+        Complex *tmp = (Complex*)realloc(arr, size * sizeof(int)*2);
         arr = tmp;
-        arr[size-1] = value;
+        arr[size-1] = c;
     }
 };

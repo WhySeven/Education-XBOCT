@@ -8,58 +8,48 @@ namespace ProcedureOrientedProgram
         // Начало кода основного метода, осуществляющего все рассчёты и отрисовку таблицы, конечно, используюя в том числе и внешние методы
         public static void MonteCarlo(double ax, double ay, double ex, double ey, double gx, double gy, int N)
         {
+            // Объявляем таймер
+            Stopwatch sw = new Stopwatch();
+            // Старт таймера
+            sw.Start();
             // Площадь прямоугольника в котором находятся фигуры
-            double S = (ex + (ey - ay) - ax) * (ey - ay);
-
+            double rectangle_Square = (ex + (ey - ay) - ax) * (ey - ay);
             // Задаём координаты недостаяющих точек dego
             double ox = ex;
             double oy = ay;
             double dx = ex+(ey-ay);
             double dy = ay;
-
+            // Координаты точки, которую мы будем бросать в прямоугольник
+            double x;
+            double y;
             // Точная площадь фигуры dego
-            double figure_Square = TriangleSquare(ex, ey, gx, gy, ox, oy) + QuadrantSquare(ox, oy, dx, dy);
-
-            // Объявляем таймер
-            Stopwatch st = new Stopwatch();
-
-            // Старт таймера
-            st.Start();
-
+            double dego_Square = TriangleSquare(ex, ey, gx, gy, ox, oy) + QuadrantSquare(ox, oy, dx, dy);
             Random random = new Random();
             int count = 0;
             for (int i = 0; i < N; i++)
             {
-                // Случайная координата x ограниченная размерами прямоугольника
-                double x = random.NextDouble() * (ex + (ey - ay) - ax) + ax;
-
-                // Случайная координата y ограниченная размерами прямоугольника
-                double y = random.NextDouble() * (ey - ay) + ay;
-
+                // Случайные координаты x и y ограниченные размерами прямоугольника
+                 x = random.NextDouble() * (ex + (ey - ay) - ax) + ax;
+                 y = random.NextDouble() * (ey - ay) + ay;
                 //Если точка попала в треугольник или квадрант(нашу фигуру dego), то счётчик увеличивается на 1
-                if (CheckPointInTriangle(x,y,ex, ey, gx, gy, ox, oy) || CheckPointInQuadrant(ox, oy, dx, dy,x,y)) { count++; }                    
+                if (CheckPointInTriangle(x, y, ex, ey, gx, gy, ox, oy) || CheckPointInQuadrant(x, y, ox, oy, dx, dy)) { count++; }                    
             }
-
             /* monte_carlo_Square - Площадь фигуры, вычисленная с помощью метода Монте-Карло:
             Точная площадь прямоугольника умножить на кол-во попаданий и поделить на кол-во бросков */
-            double monte_carlo_Square = S * count / N;
-            
+            double monte_carlo_Square = rectangle_Square * count / N;
             // Вычисление погрешности вычислений (relative error)
-            double relError = Math.Abs((figure_Square - monte_carlo_Square) / figure_Square) * 100; 
-
+            double relError = Math.Abs((dego_Square - monte_carlo_Square) / dego_Square) * 100; 
             // Стоп таймера
-            st.Stop();
-
+            sw.Stop();
             // Подсчёт милисекунд
-            long tc = st.ElapsedMilliseconds;
-
+            long ms = sw.ElapsedMilliseconds;
             // Вывод таблицы в консоль
-            int[] tableCellSizes = new int[] { 14, 24, 30, 26, 18 };
-            DrawCellLine(tableCellSizes);
-            void DrawCellLine(int[] tableCellSizes)
+            int[] tableCellSizes = new int[] { 14, 24, 30, 26, 12 };
+            DrawCells(tableCellSizes);
+            void DrawCells(int[] tableCellSizes)
             {
                 DrawHorizontalLine("╔", "╦", "╗", tableCellSizes);
-                Console.WriteLine("║ N = {0,-8} ║ dego Square = {1,-8} ║ MonteCarlo Square = {2,-8} ║ Relative Error = {3,-6}% ║ tiks = {4,-9} ║", N, Math.Round(figure_Square, 3), Math.Round(monte_carlo_Square, 3), Math.Round(relError, 3), tc);
+                Console.WriteLine("║ N = {0,-8} ║ dego Square = {1,-8} ║ MonteCarlo Square = {2,-8} ║ Relative Error = {3,-6}% ║ ms = {4,-5} ║", N, Math.Round(dego_Square, 3), Math.Round(monte_carlo_Square, 3), Math.Round(relError, 3), ms);
                 DrawHorizontalLine("╚", "╩", "╝", tableCellSizes);
             }
             void DrawHorizontalLine(string a, string b, string c, int[] tableCellSizes)
@@ -77,12 +67,14 @@ namespace ProcedureOrientedProgram
                     }
                 }
                 Console.WriteLine(c);
-            }    
+            }
         }
+
+
         // Отсюда и до меню идут методы, использующиеся в методе MonteCarlo 
 
         // Проверка наличия точки в треугольнике
-        public static bool CheckPointInTriangle(double x0, double y0, double x1, double y1, double x2, double y2, double x3, double y3)
+        private static bool CheckPointInTriangle(double x0, double y0, double x1, double y1, double x2, double y2, double x3, double y3)
         {
             double buf1 = (x1 - x0) * (y2 - y1) - (x2 - x1) * (y1 - y0);
             double buf2 = (x2 - x0) * (y3 - y2) - (x3 - x2) * (y2 - y0);
@@ -93,9 +85,8 @@ namespace ProcedureOrientedProgram
             }
             else return false;
         }
-
         // Проверка наличия точки в квадранте
-        public static bool CheckPointInQuadrant(double center_of_circle_x, double center_of_circle_y, double point_on_radius_x, double point_on_radius_y, double x, double y)
+        private static bool CheckPointInQuadrant(double x, double y, double center_of_circle_x, double center_of_circle_y, double point_on_radius_x, double point_on_radius_y)
         {
             double R = Length(center_of_circle_x, center_of_circle_y,point_on_radius_x,point_on_radius_y);
 
@@ -105,30 +96,27 @@ namespace ProcedureOrientedProgram
             }
             else return false;
         }
-
         // Вычисление точной площади квадранта
-        public static double QuadrantSquare(double x1, double y1, double x2, double y2)
+        private static double QuadrantSquare(double x1, double y1, double x2, double y2)
         {
             return Math.Pow(Length(x1, y1, x2, y2), 2) * 0.25 * Math.PI;
         }
-
         // Вычисление точной площади треугольника
-        public static double TriangleSquare(double x1, double y1, double x2, double y2, double x3, double y3)
+        private static double TriangleSquare(double x1, double y1, double x2, double y2, double x3, double y3)
         {
             double p = (Length(x1, y1, x2, y2) + Length(x2, y2, x3, y3) + Length(x3, y3, x1, y1)) / 2;
             return Math.Sqrt(p * (p - Length(x1, y1, x2, y2)) * (p - Length(x2, y2, x3, y3)) * (p - Length(x3, y3, x1, y1)));
         }
-
         // Вычисление длины отрезка
-        public static double Length(double x1, double y1, double x2, double y2)
+        private static double Length(double x1, double y1, double x2, double y2)
         {
             return Math.Sqrt(Math.Pow(x1 - x2, 2) + Math.Pow(y1 - y2, 2));
         }
-
         // Отсюда начинается Меню
         static void Main()
         {
-            // Введение переменных, необходимых для описания фигуры и буферных переменных, необходимых для предотвращения ошибок при вводе данных
+            /* Введение полей, необходимых для описания фигуры и буферных переменных, 
+             * которые будут использоваться для предотвращения ошибок при вводе данных*/
             double ax = 0;
             double ay = 0;
             double ex = 0;
@@ -141,20 +129,20 @@ namespace ProcedureOrientedProgram
             double buf_ey = 0;
             double buf_gx = 0;
             double buf_gy = 0;
-
             // Создание списка пунктов меню
             List<string> menuItem = new List<string>() 
             {
                 "Set Input Data",
-                "Set Example of Data",
+                "Show an Example",
                 "Show Current Data",
                 "Calculate",
                 "Exit"               
             };
-
-            // Цикл, вызывающий в зависимости от выбранного пункта меню
+            /* Объявление цикла, обновляющий меню при нажатии клавиш управления,
+             * а также содержащий алгоритмы действий при выборе того или иного пункта меню*/
             while (true)
             {
+                //Switch, содержащий алгоритмы действий
                 switch (DrawMenu(menuItem))
                 {
                     // 1.
@@ -162,23 +150,18 @@ namespace ProcedureOrientedProgram
                     case "Set Input Data":
                         Console.Clear();
                         SetPointsForDego();
-                        void SetPointsForDego() // Метод для введения введения исходных данных(координат точек a,e,g)
+                        // Метод для инициализации координат точек a,e,g
+                        void SetPointsForDego() 
                         {
                             SetPoint("a", ref buf_ax, ref buf_ay);
                             SetPoint("e", ref buf_ex, ref buf_ey);
                             SetPoint("g", ref buf_gx, ref buf_gy);
-                            PointInitializationErrorStackCheck();
+                            // Проверка на ошибки
+                            PointInitializationErrorsCheck();
                         }
-                        void SetPoint(string point_name, ref double x, ref double y)
-                        {
-                            Console.WriteLine("Set coordinates for point '" + point_name + "'\n\n");
-                            Console.Write("Set X:");
-                            x = CheckedReadLine();
-                            Console.Write("\nSet Y:");
-                            y = CheckedReadLine();
-                            Console.Clear();
-                        }
-                        void PointInitializationErrorStackCheck()
+                        /* Метод включающий все возможные ошибки инициализации точек и если ошибки присутствуют,
+                         * то метод снова вызывает метод для инициализации координат точек*/
+                        void PointInitializationErrorsCheck()
                         {
                             int number_of_errors = 0;
                             PointInitializationCheck(buf_gy - buf_ay <= 0, "AG length equal 0 or point G below point A", ref number_of_errors);
@@ -186,6 +169,7 @@ namespace ProcedureOrientedProgram
                             PointInitializationCheck(buf_ex - buf_ax <= 0, "AO length equal 0 or point E is to the left of point A",ref number_of_errors);
                             PointInitializationCheck(buf_ax != buf_gx, "AG are not parallel to the axis Y",ref number_of_errors);
                             PointInitializationCheck(Math.Abs(buf_gy - buf_ay) >= Math.Abs(buf_ey - buf_ay), "AG length more than length AB",ref number_of_errors);
+                            // Возвращение к методу инициализации координат, если кол-во ошибок != 0
                             if (number_of_errors != 0)
                             {
                                 Console.Write("\nNumber of errors = "+ number_of_errors+";\n\nPlease, enter correct data");
@@ -194,6 +178,7 @@ namespace ProcedureOrientedProgram
                                 SetPointsForDego();
                             }  
                         }
+                        // Заполнение  'чистовых' полей
                         ax = buf_ax;
                         ay = buf_ay;
                         ex = buf_ex;
@@ -203,8 +188,10 @@ namespace ProcedureOrientedProgram
                         ShowCurrentData(ax, ay, ex, ey, gx, gy);
                         break;
                     // 2.
-                    // Пункт меню с помощью которого мы можем задать пример данных для построения фигуры
-                    case "Set Example of Data":
+                    /* Пункт меню с помощью которого мы можем посмотреть, как работает программа,
+                     * используя готовый пример исходных данных*/
+                    case "Show an Example":
+                        // Задаются исходные данные
                         ax = 0;
                         ay = 0;
                         ex = 10;
@@ -212,9 +199,15 @@ namespace ProcedureOrientedProgram
                         gx = 0;
                         gy = 3;
                         ShowCurrentData(ax, ay, ex, ey, gx, gy);
+                        for (int N = 1000; N <= Math.Pow(10, 7); N *= 10)
+                        {
+                            // Вызов нашего основного метода MonteCarlo, используюя пример данных
+                            MonteCarlo(ax, ay, ex, ey, gx, gy, N); 
+                        }
+                        PressAnyKeyToContinue();
                         break;
                     // 3.
-                    // Пункт меню, показывающий текущие данные для построения фигуры
+                    // Пункт меню, выводящий в консоль текущие данные нашей фигуры
                     case "Show Current Data":
                         ShowCurrentData(ax, ay, ex, ey, gx, gy);
                         break;
@@ -232,7 +225,9 @@ namespace ProcedureOrientedProgram
                         {
                             for (int N = 1000; N <= Math.Pow(10, 7); N *= 10)
                             {
-                                MonteCarlo(ax, ay, ex, ey, gx, gy, N); // Вызов нашего основного метода Solution, используюя ранее введённые данные
+                                /* Вызов нашего основного метода MonteCarlo,
+                                 * используюя ранее введённые пользователем данные*/
+                                MonteCarlo(ax, ay, ex, ey, gx, gy, N); 
                             }
                             PressAnyKeyToContinue();
                         }
@@ -245,9 +240,27 @@ namespace ProcedureOrientedProgram
                 }
             }         
         }
-
-        // Метод проверяющий является ли строка числом
-        public static double CheckedReadLine()
+        // Метод для инициализации точки
+        private static void SetPoint(string point_name, ref double x, ref double y)
+        {
+            Console.WriteLine("Set coordinates for point '" + point_name + "'\n\n");
+            Console.Write("Set X:");
+            x = CheckedReadLine();
+            Console.Write("\nSet Y:");
+            y = CheckedReadLine();
+            Console.Clear();
+        }
+        // Метод для создания сообщения об ошибке
+        private static void PointInitializationCheck(bool condition, string error_message, ref int number_of_errors)
+        {
+            if (condition)
+            {
+                Console.WriteLine("Error: " + error_message + ";\n");
+                number_of_errors++;
+            }
+        }
+        // Метод, проверяющий является ли строка числом
+        private static double CheckedReadLine()
         {
             if (double.TryParse(Console.ReadLine(), out double digit))
             {
@@ -259,36 +272,27 @@ namespace ProcedureOrientedProgram
                 return CheckedReadLine();
             }
         }
-
-        // Метод для создания сообщения об ошибке
-        static void PointInitializationCheck(bool condition, string error_message, ref int number_of_errors)
-        {
-            if (condition)
-            {
-                Console.WriteLine("Error: " + error_message+";\n");
-                number_of_errors++;
-            }
-        }
-
         // Метод показывающий текущие данные фигуры
-        static void ShowCurrentData(double ax, double ay, double ex, double ey, double gx, double gy)
+        private static void ShowCurrentData(double ax, double ay, double ex, double ey, double gx, double gy)
         {
             Console.Clear();
             Console.WriteLine("Your figure data:\n\nd({0}, {1}), e({2}, {3}), g({4}, {5}), o({6}, {7});", ex + (ey - ay), ay, ex, ey, gx, gy, ex, ay);
             PressAnyKeyToContinue();
         }
-
         // Метод сообщающий, что нужно нажать на клавишу для того, чтобы продолжить
-        static void PressAnyKeyToContinue()
+        private static void PressAnyKeyToContinue()
         {
             Console.WriteLine("\n\nPress any key to continue...");
             Console.ReadKey();
             Console.Clear();
         }
-
-        // Метод DrawMenu. С помощью него и работает меню.
+        /* Метод DrawMenu. 
+         * Он принимает список пунктов меню и в зависимости от текущего значения index при нажатии enter возвращает строку выбранного пункта меню.
+         * А с помощью стрелочек вверх и вниз он увеличивает или уменьшает значение переменной index в пределах, от 0 до размера, переданного
+         * в метод списка -1, также метод выделяет пункт меню, соответствующий по номеру текущему значению index.
+         */
         private static int index = 0;
-        public static string DrawMenu(List<string> items)
+        private static string DrawMenu(List<string> items)
         {
             Console.CursorVisible = false;
             for (int i = 0; i < items.Count; i++)
@@ -323,7 +327,7 @@ namespace ProcedureOrientedProgram
                 Environment.Exit(0);
             }
             Console.Clear();
-            return"";
+            return "";
         }
     }
 }

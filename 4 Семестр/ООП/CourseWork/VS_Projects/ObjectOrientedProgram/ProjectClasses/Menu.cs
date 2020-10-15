@@ -5,177 +5,192 @@ namespace ObjectOrientedProgram.ProjectClasses
 {
     class Menu
     {
+        // Поле которое будет заполнено списком пунктов меню
         private readonly List<string> menuItems;
-        // Введение полей, необходимых для описания фигуры и буферных переменных, необходимых для предотвращения ошибок при вводе данных
-        private Point p1 = new Point();
-        private Point p2 = new Point();
-        private Point buf_p1 = new Point();
-        private Point buf_p2 = new Point();
-        private double g = 0;
-        private double buf;
-        public Menu()
+        /* Введение полей, необходимых для описания фигуры и буферных переменных, 
+         * которые будут использоваться для предотвращения ошибок при вводе данных*/
+        private Point a = new Point();
+        private Point e = new Point();
+        private Point g = new Point();
+        private Point buf_a = new Point();
+        private Point buf_e = new Point();
+        private Point buf_g = new Point();
+        public Menu()// Конструктор по умолчанию в котором мы заполняем список пунтов меню
         {
-            List<string> menuItems = new List<string>() // Создание пунктов меню
+            menuItems = new List<string>()
             {
                 "Set Input Data",
-                "Set Example of Data",
+                "Show an Example",
                 "Show Current Data",
                 "Calculate",
                 "Exit"
             };
-            this.menuItems = menuItems;
-            this.menuItems.Add("");  
         }
-        // Основной метод класса запускающий цикл, обеспечивающий работу меню
+        /* Основной метод класса запускающий цикл, обновляющий меню при нажатии клавиш управления,
+         * а также содержащий алгоритмы действий при выборе того или иного пункта меню*/
         public void Draw()
         {
-            Console.CursorVisible = false;
+            // Объявление цикла
             while (true)
             {
-                string SelectedMenuItem = DrawMenu(menuItems);
-
-                // 1.
-                // Пункт меню, запускающий ввод данных вручную
-                if (SelectedMenuItem == "Set Input Data")
+                // Switch, содержащий алгоритмы действий
+                switch (DrawMenu(menuItems))
                 {
-                    Console.Clear();
-                    SetRectangle();
-                    void SetRectangle() // Метод для введения введения координат прямоугольника, содержащего нашу фигуру, с помощью 2-ух точек, лежащих на его диагонали
-                    {
-                        Console.WriteLine("Set coordinates for 1st point on diagonal of your Rectangle\n\n");
-                        Console.Write("Set X:");
-                        buf_p1.x = CheckedReadLine();
-                        Console.Write("\nSet Y:");
-                        buf_p1.y = CheckedReadLine();
+                    // 1.
+                    // Пункт меню, запускающий ввод данных вручную
+                    case "Set Input Data":
                         Console.Clear();
-
-                        Console.WriteLine("Set coordinates for 2nd point on diagonal of your Rectangle\n\n");
-                        Console.Write("Set X:");
-                        buf_p2.x = CheckedReadLine();
-                        Console.Write("\nSet Y:");
-                        buf_p2.y = CheckedReadLine();
-                        Console.Clear();
-                    }
-
-                    while (buf_p1.x == buf_p2.x || buf_p1.y == buf_p2.y) // Вывод ошибки о том, что по таким точкам можно построить только линию и просьба ввести данные заного
-                    {
-                        Console.WriteLine("Error: You got a line, not a Rectangle\n\nPlease, enter correct data");
-                        PressAnyKeyToContinue();
-                        SetRectangle();
-                    }
-                    while (buf_p1.x == buf_p2.x && buf_p1.y == buf_p2.y) // Вывод ошибки о том, что по таким точкам можно построить только точку
-                    {
-                        Console.WriteLine("Error: You got a point, not a Rectangle\n\nPlease, enter correct data");
-                        PressAnyKeyToContinue();
-                        SetRectangle();
-                    }
-                    while (Math.Abs(buf_p1.x - buf_p2.x) == Math.Abs(buf_p1.y - buf_p2.y)) // Вывод ошибки о том, что по таким точкам можно построить только квадрат
-                    {
-                        Console.WriteLine("Error: You got a quadrate, not a Rectangle\n\nPlease, enter correct data");
-                        PressAnyKeyToContinue();
-                        SetRectangle();
-                    }
-
-
-                    //Если пользователь не правильно расположил прямоугольник программа сама исправит это поменяв координаты X и Y
-                    if ((buf_p1.x > buf_p2.x) && (buf_p1.y > buf_p2.y)) { SwapValues(ref buf_p1.x, ref buf_p2.x); SwapValues(ref buf_p1.y, ref buf_p2.y); }
-                    else if ((buf_p1.x < buf_p2.x) && (buf_p1.y > buf_p2.y)) { SwapValues(ref buf_p1.y, ref buf_p2.y); }
-                    else if ((buf_p1.x > buf_p2.x) && (buf_p1.y < buf_p2.y)) { SwapValues(ref buf_p1.x, ref buf_p2.x); }
-                    if (Math.Abs(buf_p1.x - buf_p2.x) <= Math.Abs(buf_p1.y - buf_p2.y))
-                    {
-                        SwapValues(ref buf_p1.x, ref buf_p1.y);
-                        SwapValues(ref buf_p2.x, ref buf_p2.y);
-                        Console.WriteLine("I'm swap X and Y axis");
-                        PressAnyKeyToContinue();
-                    }
-
-
-                    // Просьба ввести расстояние от точки g до точки a
-                    Console.Write("Set indent for point 'g' relative to point 'a': ");
-                    buf = CheckedReadLine();
-                    // Проверка того, что расстояние от точки g до точки не больше, чем сторона ab
-                    while (buf >= Math.Abs(buf_p2.y - buf_p1.y) || buf <= 0)
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Error: indent more then side AB or less then/equal 0");
-                        Console.Write("Please, set indent for point 'g' relative to point 'a' again: ");
-                        buf = CheckedReadLine();
-                    }
-                    p1.x = buf_p1.x;
-                    p2.x = buf_p2.x;
-                    p1.y = buf_p1.y;
-                    p2.y = buf_p2.y;
-                    g = buf;
-                    Console.Clear();
-                    Console.WriteLine("Your Rectangle was set\nP1: X={0}, Y={1};\nP2: X={2}, Y={3}\nIndent for point 'g': {4}.", p1.x, p1.y, p2.x, p2.y, g);
-                    PressAnyKeyToContinue();
-                }
-
-                // 2.
-                // Пункт меню с помощью которого мы можем задать пример данных для построения фигуры
-                else if (SelectedMenuItem == "Set Example of Data")
-                {
-                    p1.x = 0;
-                    p1.y = 0;
-                    p2.x = 15;
-                    p2.y = 5;
-                    g = 3;
-                    Console.Clear();
-                    Console.Write("You set Example of Data\nP1: X={0}, Y={1};\nP2: X={2}, Y={3}\nIndent for point 'g': {4}.", p1.x, p1.y, p2.x, p2.y, g);
-                    PressAnyKeyToContinue();
-                }
-
-                // 3.
-                // Пункт меню, показывающий текущие данные для построения фигуры
-                else if (SelectedMenuItem == "Show Current Data")
-                {
-                    Console.Clear();
-                    Console.WriteLine("Your Rectangale current data\nP1: X={0}, Y={1};\nP2: X={2}, Y={3}\nIndent for point 'g': {4}.", p1.x, p1.y, p2.x, p2.y, g);
-                    PressAnyKeyToContinue();
-                }
-
-                // 4.
-                // Пункт меню запускающий вычисления
-                else if (SelectedMenuItem == "Calculate")
-                {
-                    Console.Clear();
-                    // Проверка на то были ли введены данные
-                    if ((p1.x == p2.x) || (p1.y == p2.y))
-                    {
-                        Console.WriteLine("You don't set data / Your data is incorrect");
-                        PressAnyKeyToContinue();
-                    }
-                    else
-                    {
+                        SetPointsForDego();
+                        // Метод для инициализации координат точек a,e,g
+                        void SetPointsForDego() 
+                        {
+                            SetPoint("a", ref buf_a);
+                            SetPoint("e", ref buf_e);
+                            SetPoint("g", ref buf_g);
+                            // Проверка на ошибки
+                            PointInitializationErrorsCheck();
+                        }
+                        /* Метод включающий все возможные ошибки инициализации точек и если ошибки присутствуют,
+                         * то метод снова вызывает метод для инициализации координат точек*/
+                        void PointInitializationErrorsCheck()
+                        {
+                            int number_of_errors = 0;
+                            PointInitializationCheck(buf_g.y - buf_a.y <= 0, "AG length equal 0 or point G below point A", ref number_of_errors);
+                            PointInitializationCheck(buf_e.y - buf_a.y <= 0, "AB length equal 0 or point E below point A", ref number_of_errors);
+                            PointInitializationCheck(buf_e.x - buf_a.x <= 0, "AO length equal 0 or point E is to the left of point A", ref number_of_errors);
+                            PointInitializationCheck(buf_a.x != buf_g.x, "AG are not parallel to the axis Y", ref number_of_errors);
+                            PointInitializationCheck(Math.Abs(buf_g.y - buf_a.y) >= Math.Abs(buf_e.y - buf_a.y), "AG length more than length AB", ref number_of_errors);
+                            // Возвращение к методу инициализации координат, если кол-во ошибок != 0
+                            if (number_of_errors != 0)
+                            {
+                                Console.Write("\nNumber of errors = " + number_of_errors + ";\n\nPlease, enter correct data");
+                                number_of_errors = 0;
+                                PressAnyKeyToContinue();    
+                                SetPointsForDego();
+                            }
+                        }
+                        // Заполнение  'чистовых' полей
+                        a = buf_a;
+                        e = buf_e;
+                        g = buf_g;
+                        ShowCurrentData(a, e, g);
+                        break;
+                    // 2.
+                    /* Пункт меню с помощью которого мы можем посмотреть, как работает программа,
+                     * используя готовый пример исходных данных*/
+                    case "Show an Example":
+                        // Задаются исходные данные
+                        a = new Point(0, 0);
+                        e = new Point(10, 5);
+                        g = new Point(0, 3);
+                        ShowCurrentData(a, e, g);
                         for (int N = 1000; N <= Math.Pow(10, 7); N *= 10)
                         {
-                            MonteCarloCalculator calc = new MonteCarloCalculator(p1, p2, g, N);
+                            /* Создание экземпляра класса MonteCarloCalculator, используя пример данных
+                             * который преобразует исходные данные в точки фигуры dego,
+                             * создаёт экземляры классов triangle и quadrand и использует их методы для
+                             * подсчёта площади методом Монте-Карло, а затем идёт вызов метода Calculate и DrawTable,
+                             * обеспечивающие все рассчёты и вывод таблицы с необходимыми данными в консоль*/
+                            MonteCarloCalculator calc = new MonteCarloCalculator(a, e, g, N);
+                            calc.Calculate();
                             calc.DrawTable();
                         }
                         PressAnyKeyToContinue();
-                    }
-
-                }
-
-                // 5.
-                // Пункт меню, обеспечивающий выход из программы
-                else if (SelectedMenuItem == "Exit")
-                {
-                    Environment.Exit(0);
+                        break;
+                    // 3.
+                    // Пункт меню, выводящий в консоль текущие данные нашей фигуры
+                    case "Show Current Data":
+                        ShowCurrentData(a, e, g);
+                        break;
+                    // 4.
+                    // Пункт меню запускающий вычисления
+                    case "Calculate":
+                        Console.Clear();
+                        // Проверка на то были ли введены данные
+                        if (a.x == e.x)
+                        {
+                            Console.WriteLine("You don't set data");
+                            PressAnyKeyToContinue();
+                        }
+                        else
+                        {
+                            for (int N = 1000; N <= Math.Pow(10, 7); N *= 10)
+                            {
+                                /* Создание экземпляра класса MonteCarloCalculator, ранее введённые пользователем данные
+                                 * который преобразует исходные данные в точки фигуры dego,
+                                 * создаёт экземляры классов triangle и quadrand и использует их методы для
+                                 * подсчёта площади методом Монте-Карло, а затем идёт вызов метода Calculate и DrawTable,
+                                 * обеспечивающие все рассчёты и вывод таблицы с необходимыми данными в консоль*/
+                                MonteCarloCalculator calc = new MonteCarloCalculator(a, e, g, N);
+                                calc.Calculate();
+                                calc.DrawTable();
+                            }
+                            PressAnyKeyToContinue();
+                        }
+                        break;
+                    // 5.
+                    // Пункт меню, обеспечивающий выход из программы
+                    case "Exit":
+                        Environment.Exit(0);
+                        break;
                 }
             }
         }
-        // Метод меняющий значения переменных местами
-        private static void SwapValues(ref double a, ref double b)
+        // Метод для инициализации точки
+        private static void SetPoint(string point_name, ref Point p)
         {
-            a += b;
-            b = a - b;
-            a -= b;
+            Console.WriteLine("Set coordinates for point '" + point_name + "'\n\n");
+            Console.Write("Set X:");
+            p.x = CheckedReadLine();
+            Console.Write("\nSet Y:");
+            p.y = CheckedReadLine();
+            Console.Clear();
         }
-        // Метод DrawMenu. С помощью него и происходит отрисовка меню.
+        // Метод для создания сообщения об ошибке
+        private static void PointInitializationCheck(bool condition, string error_message, ref int number_of_errors)
+        {
+            if (condition)
+            {
+                Console.WriteLine("Error: " + error_message + ";\n");
+                number_of_errors++;
+            }
+        }
+        // Метод, проверяющий является ли строка числом
+        private static double CheckedReadLine()
+        {
+            if (double.TryParse(Console.ReadLine(), out double digit))
+            {
+                return digit;
+            }
+            else
+            {
+                Console.Write("Incorrect data format, please enter data again: ");
+                return CheckedReadLine();
+            }
+        }
+        // Метод показывающий текущие данные фигуры
+        private static void ShowCurrentData(Point a, Point e, Point g)
+        {
+            Console.Clear();
+            Console.WriteLine("Your figure data:\n\nd({0}, {1}), e({2}, {3}), g({4}, {5}), o({6}, {7});", e.x + (e.y - a.y), a.y, e.x, e.y, g.x, g.y, e.x, a.y);
+            PressAnyKeyToContinue();
+        }
+        // Метод сообщающий, что нужно нажать на клавишу для того, чтобы продолжить
+        private static void PressAnyKeyToContinue()
+        {
+            Console.WriteLine("\n\nPress any key to continue...");
+            Console.ReadKey();
+            Console.Clear();
+        }
+        /* Метод DrawMenu. 
+         * Он принимает список пунктов меню и в зависимости от текущего значения index при нажатии enter возвращает строку выбранного пункта меню.
+         * А с помощью стрелочек вверх и вниз он увеличивает или уменьшает значение переменной index в пределах, от 0 до размера, переданного
+         * в метод списка -1, также метод выделяет пункт меню, соответствующий по номеру текущему значению index.
+         */
         private static int index = 0;
         private static string DrawMenu(List<string> items)
         {
+            Console.CursorVisible = false;
             for (int i = 0; i < items.Count; i++)
             {
                 if (i == index)
@@ -191,7 +206,7 @@ namespace ObjectOrientedProgram.ProjectClasses
                 Console.ResetColor();
             }
             ConsoleKeyInfo ckey = Console.ReadKey();
-            if (ckey.Key == ConsoleKey.DownArrow && index < items.Count - 2)
+            if (ckey.Key == ConsoleKey.DownArrow && index < items.Count - 1)
             {
                 index++;
             }
@@ -209,26 +224,6 @@ namespace ObjectOrientedProgram.ProjectClasses
             }
             Console.Clear();
             return "";
-        }
-        // Метод проверяющий является ли строка числом
-        private static double CheckedReadLine()
-        {
-            if (double.TryParse(Console.ReadLine(), out double digit))
-            {
-                return digit;
-            }
-            else
-            {
-                Console.Write("Incorrect data format, please enter data again:");
-                return CheckedReadLine();
-            }
-        }
-        // Метод сообщающий, что нужно нажать на клавишу для того, чтобы продолжить
-        private void PressAnyKeyToContinue()
-        {
-            Console.WriteLine("\n\nPress any key to continue...");
-            Console.ReadKey();
-            Console.Clear();
         }
     }
 }

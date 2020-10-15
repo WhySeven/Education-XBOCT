@@ -4,34 +4,38 @@ namespace ObjectOrientedProgram.ProjectClasses
 {
     class Quadrant
     {
-        public Point center, p1, p2; // Поля класса
-        public Quadrant() // Конструктор по умолчанию
+        // Поля класса
+        public Point center, p;
+        // Конструктор по умолчанию
+        public Quadrant() 
         {
             center = new Point();
-            p1 = new Point();
-            p2 = new Point();
+            p = new Point();
         }
-        public Quadrant(Point center, Point p1) // Конструктор инициализации(заполнения)
+        // Конструктор инициализации(заполнения)
+        public Quadrant(Point center, Point p) 
         {
             this.center = center;
-            this.p1 = p1;
-            p2 = new Point(this.center.x, this.center.y + new Side(center, p1).Length());
+            this.p = p;
         }
-        public Quadrant(Quadrant q) // Конструктор копирования
+        // Конструктор копирования
+        public Quadrant(Quadrant q) 
         {
             center = q.center;
-            p1 = q.p1;
-            p2 = q.p2;
+            p = q.p;
         }
-        public double Radius() // Метод возвращающий длину радиуса квадранта
+        // Метод возвращающий длину радиуса квадранта
+        public double Radius()
         {
-            return new Side(center, p1).Length();
+            return new Side(center, p).Length();
         }
-        public double Square() // Метод считающий площадь квадранта
+        // Метод вычисляющий точную площадь квадранта
+        public double Square() 
         {
             return 0.25 * Math.PI * Math.Pow(Radius(), 2);
         }
-        public bool CheckPoint(Point p) // Метод проверящий попадает ли точка в квадрант
+        // Метод проверящий попадает ли точка 'p' в квадрант
+        public bool CheckPoint(Point p) 
         {
             if ((Math.Pow(p.x - center.x, 2) + Math.Pow(p.y - center.y, 2) <= Math.Pow(Radius(), 2)) && (p.x >= center.x) && (p.y >= center.y))
             {

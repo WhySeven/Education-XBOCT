@@ -5,63 +5,90 @@ namespace ObjectOrientedProgram.ProjectClasses
 {
     public class MonteCarloCalculator
     {
-        // Поля нашего класса
+        // Треугольник и квадрант
         private readonly Quadrant quadrant;
         private readonly Triangle triangle;
-        private readonly Point d, e, g, o, p1, p2;
+        // Точки фигуры dego
+        private readonly Point d, e, g, o;
+        // Точки, лежащие на главной диагонали прямоугольника
+        private readonly Point a, c;
+        // Кол-во бросков точки
         private readonly int N;
-        private readonly double s; // площадь прямоугольника в котором находится наша фигура dego
-
+        // площадь прямоугольника в котором находится наша фигура dego
+        private readonly double rectangle_Square;
+        // Координаты точки, которую мы будем бросать в прямоугольник
+        private double x, y;
+        // Относительная погрешность
+        private double relError;
+        // Точная площадь
+        private double dego_Square;
+        // Поле в которое будет записана площадь, вычисленная методом Монте-Карло
+        private double monte_carlo_Square;
+        // Поле в которое будет записано время затраченное на метод Calculate
+        private long ms;
         // Заполняем наши поля с помощью конструктора
-        public MonteCarloCalculator(Point p1, Point p2, double g, int N) // g - отступ точки g от точки a
+        public MonteCarloCalculator(Point a, Point e, Point g, int N) // Конструктор инициализации
         {
-            this.p1 = p1;
-            this.p2 = p2;
-            d = new Point(p2.x, p1.y);
-            e = new Point(p2.x - (p2.y - p1.y), p2.y);
-            this.g = new Point(p1.x, p1.y + g);
-            o = new Point(p2.x - (p2.y - p1.y), p1.y);
-            triangle = new Triangle(e, this.g, o);
+            this.a = a;
+            c = new Point(e.x + (e.y - a.y), e.y);
+            d = new Point(e.x + (e.y - a.y), a.y);
+            this.e = e;
+            this.g = g;
+            o = new Point(e.x, a.y);
+            triangle = new Triangle(this.e, this.g, o);
             quadrant = new Quadrant(o, d);
             this.N = N;
-            s = (p2.x - p1.x) * (p2.y - p1.y);
+            rectangle_Square = (c.x - a.x) * (c.y - a.y);
         }
-        private double GetSquare() // Получение площади dego
+        // Метод возвращающий точную площадь dego
+        private double GetSquare() 
         {
             return triangle.Square() + quadrant.Square();
         }
-        private double MonteCarloSquare() // Получение площади dego методом Монте-Карло
+        // Метод возвращающий площадь dego, вычисленную методом Монте-Карло
+        private double MonteCarloSquare()
         {
-            Random rand = new Random();
+            Random random = new Random();
             int count = 0;
             for (int i = 0; i < N; i++)
             {
-                double x = rand.NextDouble() * (p2.x - p1.x) + p1.x;
-                double y = rand.NextDouble() * (p2.y - p1.y) + p1.y;
+                x = random.NextDouble() * (c.x - a.x) + a.x;
+                y = random.NextDouble() * (c.y - a.y) + a.y;
                 Point p = new Point(x, y);
                 if (triangle.CheckPoint(p) || quadrant.CheckPoint(p))
                 {
                     count++;
                 }
             }
-            return s * count / N;
+            return rectangle_Square * count / N;
         }
+        public void Calculate()
+        {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            // Вычисление точной площади
+            dego_Square = GetSquare();
+            // Вычисление площади методом Монте-Карло
+            monte_carlo_Square = MonteCarloSquare();
+            // Вычисление погрешности вычислений (relative error)
+            relError = Math.Abs((dego_Square - monte_carlo_Square) / dego_Square) * 100;
+            // Стоп таймера
+            sw.Stop();
+            // Подсчёт милисекунд
+            ms = sw.ElapsedMilliseconds;
+        }
+        // Вывод таблицы в консоль
         public void DrawTable()
         {
-            // Вычисление данных для таблицы
-            double figure_S = GetSquare();
-            double mc_S;
-            double relError;
-            Stopwatch st = new Stopwatch();
-            st.Start();
-            mc_S = MonteCarloSquare();
-            relError = Math.Abs((figure_S - mc_S) / figure_S) * 100;
-            st.Stop();
-            long tc = st.ElapsedTicks;
-
-            //Непосредственно отрисовка таблицы
-            int[] tableCellSizes = new int[] { 14, 24, 30, 26, 18 };
-            static void DrawHorizontal(string a, string b, string c, int[] tableCellSizes)
+            int[] tableCellSizes = new int[] { 14, 24, 30, 26, 12 };
+            DrawCells(tableCellSizes);
+            void DrawCells(int[] tableCellSizes)
+            {
+                DrawHorizontalLine("╔", "╦", "╗", tableCellSizes);
+                Console.WriteLine("║ N = {0,-8} ║ dego Square = {1,-8} ║ MonteCarlo Square = {2,-8} ║ Relative Error = {3,-6}% ║ ms = {4,-5} ║", N, Math.Round(dego_Square, 3), Math.Round(monte_carlo_Square, 3), Math.Round(relError, 3), ms);
+                DrawHorizontalLine("╚", "╩", "╝", tableCellSizes);
+            }
+            void DrawHorizontalLine(string a, string b, string c, int[] tableCellSizes)
             {
                 Console.Write(a);
                 for (int j = 0; j < tableCellSizes.Length; j++)
@@ -77,13 +104,7 @@ namespace ObjectOrientedProgram.ProjectClasses
                 }
                 Console.WriteLine(c);
             }
-            void DrawCellLine(int[] tableCellSizes)
-            {
-                DrawHorizontal("╔", "╦", "╗", tableCellSizes);
-                Console.WriteLine("║ N = {0,-8} ║ dego Square = {1,-8} ║ MonteCarlo Square = {2,-8} ║ Relative Error = {3,-6}% ║ tiks = {4,-9} ║", N, Math.Round(figure_S, 3), Math.Round(mc_S, 3), Math.Round(relError, 3), tc);
-                DrawHorizontal("╚", "╩", "╝", tableCellSizes);
-            }
-            DrawCellLine(tableCellSizes);
         }
     }
 }
+

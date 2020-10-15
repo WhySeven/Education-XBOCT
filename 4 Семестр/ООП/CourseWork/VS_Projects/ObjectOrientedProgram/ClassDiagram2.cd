@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="ObjectOrientedProgram.Program">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectOrientedProgram.ProjectClasses.Menu">
+    <Position X="8.25" Y="2" Width="6" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAgAAAgAAAAAQIAAAAIEBAAAqACAgAAABAIA=</HashCode>
+      <FileName>ProjectClasses\Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectOrientedProgram.ProjectClasses.MonteCarloCalculator">
+    <Position X="3.75" Y="2" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAoAAIAAIAAAAAAQAUAAICAAAACuCARgABAAAAA=</HashCode>
+      <FileName>ProjectClasses\MonteCarloCalculator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectOrientedProgram.ProjectClasses.Quadrant">
+    <Position X="4.75" Y="7.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAgIAAAAAAAAAgAAAAAAAAAAAAAAAAAAAEAgAAAAAAA=</HashCode>
+      <FileName>ProjectClasses\Figures\Quadrant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectOrientedProgram.ProjectClasses.Triangle">
+    <Position X="8.25" Y="7.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAQAAAgAAAAAAAAAAAAEAAACggQAgBAAAAAA=</HashCode>
+      <FileName>ProjectClasses\Figures\Triangle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectOrientedProgram.ProjectClasses.Side">
+    <Position X="5.25" Y="12.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAEAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>ProjectClasses\Side.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectOrientedProgram.Point">
+    <Position X="8.25" Y="12.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
+      <FileName>ProjectClasses\Point.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -37,7 +37,7 @@ namespace ObjectOrientedProgram.ProjectClasses
         // Метод проверящий попадает ли точка 'p' в квадрант
         public bool CheckPoint(Point p) 
         {
-            if ((Math.Pow(p.x - center.x, 2) + Math.Pow(p.y - center.y, 2) <= Math.Pow(Radius(), 2)) && (p.x >= center.x) && (p.y >= center.y))
+            if ((Math.Pow(p.X - center.X, 2) + Math.Pow(p.Y - center.Y, 2) <= Math.Pow(Radius(), 2)) && (p.X >= center.X) && (p.Y >= center.Y))
             {
                 return true;
             }

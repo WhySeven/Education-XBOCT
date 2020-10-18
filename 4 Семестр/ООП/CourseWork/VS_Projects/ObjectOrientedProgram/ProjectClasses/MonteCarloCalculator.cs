@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace ObjectOrientedProgram.ProjectClasses
-{
-    public class MonteCarloCalculator
-    {
+namespace ObjectOrientedProgram.ProjectClasses {
+    public class MonteCarloCalculator {
         // Треугольник и квадрант
         private readonly Quadrant quadrant;
         private readonly Triangle triangle;
@@ -30,40 +28,35 @@ namespace ObjectOrientedProgram.ProjectClasses
         public MonteCarloCalculator(Point a, Point e, Point g, int N) // Конструктор инициализации
         {
             this.a = a;
-            c = new Point(e.x + (e.y - a.y), e.y);
-            d = new Point(e.x + (e.y - a.y), a.y);
+            c = new Point(e.X + (e.Y - a.Y), e.Y);
+            d = new Point(e.X + (e.Y - a.Y), a.Y);
             this.e = e;
             this.g = g;
-            o = new Point(e.x, a.y);
+            o = new Point(e.X, a.Y);
             triangle = new Triangle(this.e, this.g, o);
             quadrant = new Quadrant(o, d);
             this.N = N;
-            rectangle_Square = (c.x - a.x) * (c.y - a.y);
+            rectangle_Square = (c.X - a.X) * (c.Y - a.Y);
         }
         // Метод возвращающий точную площадь dego
-        private double GetSquare() 
-        {
+        private double GetSquare() {
             return triangle.Square() + quadrant.Square();
         }
         // Метод возвращающий площадь dego, вычисленную методом Монте-Карло
-        private double MonteCarloSquare()
-        {
+        private double MonteCarloSquare() {
             Random random = new Random();
             int count = 0;
-            for (int i = 0; i < N; i++)
-            {
-                x = random.NextDouble() * (c.x - a.x) + a.x;
-                y = random.NextDouble() * (c.y - a.y) + a.y;
+            for (int i = 0; i < N; i++) {
+                x = random.NextDouble() * (c.X - a.X) + a.X;
+                y = random.NextDouble() * (c.Y - a.Y) + a.Y;
                 Point p = new Point(x, y);
-                if (triangle.CheckPoint(p) || quadrant.CheckPoint(p))
-                {
+                if (triangle.CheckPoint(p) || quadrant.CheckPoint(p)) {
                     count++;
                 }
             }
             return rectangle_Square * count / N;
         }
-        public void Calculate()
-        {
+        public void Calculate() {
             Stopwatch sw = new Stopwatch();
             sw.Start();
             // Вычисление точной площади
@@ -78,27 +71,21 @@ namespace ObjectOrientedProgram.ProjectClasses
             ms = sw.ElapsedMilliseconds;
         }
         // Вывод таблицы в консоль
-        public void DrawTable()
-        {
+        public void DrawTable() {
             int[] tableCellSizes = new int[] { 14, 24, 30, 26, 12 };
             DrawCells(tableCellSizes);
-            void DrawCells(int[] tableCellSizes)
-            {
+            void DrawCells(int[] tableCellSizes) {
                 DrawHorizontalLine("╔", "╦", "╗", tableCellSizes);
                 Console.WriteLine("║ N = {0,-8} ║ dego Square = {1,-8} ║ MonteCarlo Square = {2,-8} ║ Relative Error = {3,-6}% ║ ms = {4,-5} ║", N, Math.Round(dego_Square, 3), Math.Round(monte_carlo_Square, 3), Math.Round(relError, 3), ms);
                 DrawHorizontalLine("╚", "╩", "╝", tableCellSizes);
             }
-            void DrawHorizontalLine(string a, string b, string c, int[] tableCellSizes)
-            {
+            void DrawHorizontalLine(string a, string b, string c, int[] tableCellSizes) {
                 Console.Write(a);
-                for (int j = 0; j < tableCellSizes.Length; j++)
-                {
-                    for (int i = 0; i < tableCellSizes[j]; i++)
-                    {
+                for (int j = 0; j < tableCellSizes.Length; j++) {
+                    for (int i = 0; i < tableCellSizes[j]; i++) {
                         Console.Write("═");
                     }
-                    if (j != tableCellSizes.Length - 1)
-                    {
+                    if (j != tableCellSizes.Length - 1) {
                         Console.Write(b);
                     }
                 }

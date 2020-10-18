@@ -5,91 +5,86 @@ using namespace std;
 
 Complex::Complex()
 {
-    this->imaginary = 0;
     this->real = 0;
+    this->imaginary = 0;
 }
-Complex::Complex(int imaginary)
+Complex::Complex(int real,int imaginary)
 {
-    this->imaginary = imaginary;
-    real = 0;
-}
-Complex::Complex(int imaginary,int real)
-{
-    this->imaginary = imaginary;
     this->real = real;
+    this->imaginary = imaginary;
 }
-Complex::Complex(const Complex &c)
+Complex::Complex(const Complex& c)
 {
-    imaginary = c.imaginary;
     real = c.real;
+    imaginary = c.imaginary;
 }
 //+
-const Complex Complex::operator+(const Complex& item) const
+const Complex Complex::operator+(const Complex& c) const
 {
-    return Complex(imaginary + item.imaginary, real + item.real);
+    return Complex(real + c.real, imaginary + c.imaginary);
 }
 const Complex Complex::operator+(const int& value)const
 {
-    return Complex(imaginary, real + value);
+    return Complex(real + value, imaginary);
 }
-const Complex operator+(const int& value, const Complex& item)
+const Complex operator+(const int& value, const Complex& c)
 {
-    return Complex(item.imaginary, item.real + value);
+    return Complex(value + c.real, c.imaginary);
 }
 
 //-
-const Complex Complex::operator-(const Complex& item) const
+const Complex Complex::operator-(const Complex& c) const
 {
-    return Complex(imaginary - item.imaginary, real - item.real);
+    return Complex(real - c.real, imaginary - c.imaginary);
 }
 const Complex Complex::operator-(const int& value) const
 {
-    return Complex(imaginary, real - value);
+    return Complex(real - value, imaginary);
 }
-const Complex operator-(const int& value, const Complex& item)
+const Complex operator-(const int& value, const Complex& c)
 {
-    return Complex(-item.imaginary, value - item.real);
+    return Complex(value -c.real, -c.imaginary);
 }
 
 //+=
-Complex& Complex::operator+=(const Complex& item)
+Complex& Complex::operator+=(const Complex& c)
 {
-    imaginary += item.imaginary;
-    real += item.imaginary;
+    real += c.real;
+    imaginary += c.imaginary;
     return *this;
 }
 Complex& Complex::operator+=(const int& value)
 {
-    imaginary += 0;
     real += value;
+    imaginary += 0;
     return *this;
 }
 
 //-=
-Complex& Complex::operator-=(const Complex& item)
+Complex& Complex::operator-=(const Complex& c)
 {
-    imaginary -= item.imaginary;
-    real -= item.imaginary;
+    real -= c.real;
+    imaginary -= c.imaginary;
     return *this;
 }
 Complex& Complex::operator-=(const int& value)
 {
-    imaginary -= 0;
     real -= value;
+    imaginary -= 0;
     return *this;
 }
 
 // =
-Complex& Complex::operator=(const Complex& item)
+Complex& Complex::operator=(const Complex& c)
 {
-    imaginary = item.imaginary;
-    real = item.real;
+    real = c.real;
+    imaginary = c.imaginary;
     return *this;
 }
 Complex& Complex::operator=(const int& value)
 {
-    imaginary = 0;
     real = value;
+    imaginary = 0;
     return *this;
 }
 
@@ -100,7 +95,8 @@ int Complex::extract_real()
 }
 
 //<<
-ostream& operator<<(ostream& os, const Complex& item)
+ostream& operator<<(ostream& os, const Complex& c)
 {
-    return os << item.real << " + (" << item.imaginary << ")i;\n";;
+    return os << c.real << " + (" << c.imaginary << ")i;\n";;
 }
+

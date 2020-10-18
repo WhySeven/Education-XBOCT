@@ -22,7 +22,7 @@ namespace ObjectOrientedProgram.ProjectClasses
         }
         public double Length() // Метод вычисляющий длину стороны
         {
-            return Math.Sqrt(Math.Pow(p1.x - p2.x, 2) + Math.Pow(p1.y - p2.y, 2));
+            return Math.Sqrt(Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2));
         }
     }
 }

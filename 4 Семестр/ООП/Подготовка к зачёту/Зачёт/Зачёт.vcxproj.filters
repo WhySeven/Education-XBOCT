@@ -5,35 +5,49 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Файлы заголовков">
+    <Filter Include="Classes">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Файлы ресурсов">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Classes\Array">
+      <UniqueIdentifier>{7897dfc8-e634-432f-9861-fd4e22a41cb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Complex">
+      <UniqueIdentifier>{c6cdace1-b273-4a91-8dfe-57685cbfb384}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Point">
+      <UniqueIdentifier>{8571d2ca-e102-4e6d-b5f2-aff53c35a4f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Rectangle">
+      <UniqueIdentifier>{a555b8e1-af14-46bb-8330-23b4ce86a8c6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Зачёт.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Array.cpp">
+      <Filter>Classes\Array</Filter>
+    </ClCompile>
     <ClCompile Include="Complex.cpp">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Classes\Complex</Filter>
+    </ClCompile>
+    <ClCompile Include="Point.cpp">
+      <Filter>Classes\Point</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Complex.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="Array.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Classes\Array</Filter>
+    </ClInclude>
+    <ClInclude Include="Complex.h">
+      <Filter>Classes\Complex</Filter>
     </ClInclude>
     <ClInclude Include="Point.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Classes\Point</Filter>
     </ClInclude>
     <ClInclude Include="Rectangle.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Classes\Rectangle</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

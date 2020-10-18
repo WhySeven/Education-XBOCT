@@ -53,9 +53,9 @@ namespace ObjectOrientedProgram.ProjectClasses
         // Метод проверяющий наличие точки 'p' в треугольнике
         public bool CheckPoint(Point p) 
         {
-            double buf1 = (p1.x - p.x) * (p2.y - p1.y) - (p2.x - p1.x) * (p1.y - p.y);
-            double buf2 = (p2.x - p.x) * (p3.y - p2.y) - (p3.x - p2.x) * (p2.y - p.y);
-            double buf3 = (p3.x - p.x) * (p1.y - p3.y) - (p1.x - p3.x) * (p3.y - p.y);
+            double buf1 = (p1.X - p.X) * (p2.Y - p1.Y) - (p2.X - p1.X) * (p1.Y - p.Y);
+            double buf2 = (p2.X - p.X) * (p3.Y - p2.Y) - (p3.X - p2.X) * (p2.Y - p.Y);
+            double buf3 = (p3.X - p.X) * (p1.Y - p3.Y) - (p1.X - p3.X) * (p3.Y - p.Y);
             if ((buf1 >= 0 && buf2 >= 0 && buf3 >= 0) || (buf1 <= 0 && buf2 <= 0 && buf3 <= 0))
             {
                 return true;

@@ -1,4 +1,3 @@
-using ObjectOrientedProgram.ProjectClasses;
 namespace ObjectOrientedProgram
 {
     class Program

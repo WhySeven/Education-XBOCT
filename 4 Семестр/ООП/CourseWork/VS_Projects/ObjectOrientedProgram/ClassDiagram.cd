@@ -10,21 +10,14 @@
   <Class Name="ObjectOrientedProgram.ProjectClasses.Menu">
     <Position X="2.75" Y="0.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAQBCAAAAAgAAAAAQIAAAAAEBAAAIgAAAAAABAIA=</HashCode>
-      <FileName>ProjectClasses\Menu.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ObjectOrientedProgram.ProjectClasses.MonteCarloCalculator">
-    <Position X="5.5" Y="0.5" Width="2.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAIAAIAAIAAAAAAQAQAAAAEAAAAOiIAAABAAAAA=</HashCode>
-      <FileName>ProjectClasses\MonteCarloCalculator.cs</FileName>
+      <HashCode>AAAAAAAAAgAAAgAAQAAQIAAAACEhAAAqAAAAAAAAAIA=</HashCode>
+      <FileName>ProjectClasses\Menu\Menu.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ObjectOrientedProgram.ProjectClasses.Quadrant">
     <Position X="8" Y="4" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAgIAAAAAAAAAgAAAAAAAAAAAAEAAAAAgAAgAAAAAAA=</HashCode>
+      <HashCode>AAgIAAAAAAAAAgAAAAAAAAAAAAAAAAAAAEAgAAAAAAA=</HashCode>
       <FileName>ProjectClasses\Figures\Quadrant.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -47,6 +40,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
       <FileName>ProjectClasses\Point.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectOrientedProgram.ProjectClasses.MonteCarloCalculator">
+    <Position X="5.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAoAAIAAIAAAAAAQAUAAIAAgAACuCARgABAAAAA=</HashCode>
+      <FileName>ProjectClasses\MonteCarloCalculator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

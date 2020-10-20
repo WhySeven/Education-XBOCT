@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ObjectOrientedProgram.ProjectClasses {
+namespace ObjectOrientedProgram {
     class Menu {
         // Поле которое будет заполнено списком пунктов меню
         readonly List<string> menuItems;
@@ -36,7 +36,7 @@ namespace ObjectOrientedProgram.ProjectClasses {
                 // Пункт меню, запускающий ввод данных вручную
                 case "Set Input Data":
                     //Console.Clear();
-                    SetPointsForDego();
+                    SetPoints();
                     // Заполнение  'чистовых' полей
                     ShowCurrentData(a, e, g);
                     break;
@@ -49,16 +49,14 @@ namespace ObjectOrientedProgram.ProjectClasses {
                     e = new Point(10, 5);
                     g = new Point(0, 3);
                     ShowCurrentData(a, e, g);
-                    for (int N = 1000; N <= Math.Pow(10, 7); N *= 10) {
-                        /* Создание экземпляра класса MonteCarloCalculator, используя пример данных
-                         * который преобразует исходные данные в точки фигуры dego,
-                         * создаёт экземляры классов triangle и quadrand и использует их методы для
-                         * подсчёта площади методом Монте-Карло, а затем идёт вызов метода Calculate и DrawTable,
-                         * обеспечивающие все рассчёты и вывод таблицы с необходимыми данными в консоль*/
-                        var calc = new MonteCarloCalculator(a, e, g, N);
-                        calc.Calculate();
-                        calc.DrawTable();
-                    }
+                    /* Создание экземпляра класса MonteCarloCalculator, используя пример данных
+                    * который преобразует исходные данные в точки фигуры dego,
+                    * создаёт экземляры классов triangle и quadrand и использует их методы для
+                    * подсчёта площади методом Монте-Карло, а затем идёт вызов метода Calculate и DrawTable,
+                    * обеспечивающие все рассчёты и вывод таблицы с необходимыми данными в консоль*/
+                    MonteCarloCalculator calc_example = new MonteCarloCalculator(a, e, g);
+                    calc_example.Calculate();
+                    calc_example.DrawTable();
                     PressAnyKeyToContinue();
                     break;
                 // 3.
@@ -71,20 +69,20 @@ namespace ObjectOrientedProgram.ProjectClasses {
                 case "Calculate":
                     Console.Clear();
                     // Проверка на то были ли введены данные
-                    if (a.X == e.X) {
+                    if (a.x == e.x) {
                         Console.WriteLine("You didn't set the data");
                         PressAnyKeyToContinue();
-                    } else {
-                        for (int N = 1000; N <= Math.Pow(10, 7); N *= 10) {
-                            /* Создание экземпляра класса MonteCarloCalculator, ранее введённые пользователем данные
-                             * который преобразует исходные данные в точки фигуры dego,
-                             * создаёт экземляры классов triangle и quadrand и использует их методы для
-                             * подсчёта площади методом Монте-Карло, а затем идёт вызов метода Calculate и DrawTable,
-                             * обеспечивающие все рассчёты и вывод таблицы с необходимыми данными в консоль*/
-                            var calc = new MonteCarloCalculator(a, e, g, N);
-                            calc.Calculate();
-                            calc.DrawTable();
-                        }
+                    } 
+                    else 
+                    {
+                        /* Создание экземпляра класса MonteCarloCalculator, ранее введённые пользователем данные
+                         * который преобразует исходные данные в точки фигуры dego,
+                         * создаёт экземляры классов triangle и quadrand и использует их методы для
+                         * подсчёта площади методом Монте-Карло, а затем идёт вызов метода Calculate и DrawTable,
+                         * обеспечивающие все рассчёты и вывод таблицы с необходимыми данными в консоль*/
+                        MonteCarloCalculator calc = new MonteCarloCalculator(a, e, g);
+                        calc.Calculate();
+                        calc.DrawTable();
                         PressAnyKeyToContinue();
                     }
                     break;
@@ -99,7 +97,7 @@ namespace ObjectOrientedProgram.ProjectClasses {
             Draw();
         }
         // Метод для инициализации координат точек a,e,g
-        void SetPointsForDego() {
+        void SetPoints() {
             a = SetPoint("a");
             e = SetPoint("e");
             g = SetPoint("g");
@@ -108,24 +106,23 @@ namespace ObjectOrientedProgram.ProjectClasses {
             /* Метод включающий все возможные ошибки инициализации точек и если ошибки присутствуют,
             * то метод снова вызывает метод для инициализации координат точек*/
             List<string> errorList = new PointValidator(a, e, g).ValidatePoints();
-            int numberOfErrors = errorList.Count;
-            if (numberOfErrors == 0)
+            if (errorList.Count == 0)
                 return;
-
-            Console.WriteLine("\nNumber of errors = " + numberOfErrors + ";\n\nPlease, enter correct data");
+            Console.WriteLine("Number of errors = " + errorList.Count + ";\n");
             foreach (var error in errorList)
                 Console.WriteLine(error);
+            Console.WriteLine("\nPlease enter correct data");
             PressAnyKeyToContinue();
-            SetPointsForDego();
+            SetPoints();
         }
         // Метод для инициализации точки
         Point SetPoint(string point_name) {
             var point = new Point();
-            Console.WriteLine("Set coordinates for point '" + point_name + "'\n\n");
-            Console.Write("Set X:");
-            point.X = CheckedReadLine();
-            Console.Write("\nSet Y:");
-            point.Y = CheckedReadLine();
+            Console.WriteLine("Set coordinates for point '" + point_name + "'\n");
+            Console.Write("\nSet x:");
+            point.x = CheckedReadLine();
+            Console.Write("\nSet y:");
+            point.y = CheckedReadLine();
             Console.Clear();
             return point;
         }
@@ -139,7 +136,7 @@ namespace ObjectOrientedProgram.ProjectClasses {
         // Метод показывающий текущие данные фигуры
         void ShowCurrentData(Point a, Point e, Point g) {
             Console.Clear();
-            Console.WriteLine("Your figure data:\n\nd({0}, {1}), e({2}, {3}), g({4}, {5}), o({6}, {7});", e.X + (e.Y - a.Y), a.Y, e.X, e.Y, g.X, g.Y, e.X, a.Y);
+            Console.WriteLine("your figure data:\n\nd({0}, {1}), e({2}, {3}), g({4}, {5}), o({6}, {7});", e.x + (e.y - a.y), a.y, e.x, e.y, g.x, g.y, e.x, a.y);
             PressAnyKeyToContinue();
         }
         // Метод сообщающий, что нужно нажать на клавишу для того, чтобы продолжить
@@ -148,11 +145,11 @@ namespace ObjectOrientedProgram.ProjectClasses {
             Console.ReadKey();
             Console.Clear();
         }
-         /* Метод DrawMenu. 
-         * Он принимает список пунктов меню и в зависимости от текущего значения index при нажатии enter возвращает строку выбранного пункта меню.
-         * А с помощью стрелочек вверх и вниз он увеличивает или уменьшает значение переменной index в пределах, от 0 до размера, переданного
-         * в метод списка -1, также метод выделяет пункт меню, соответствующий по номеру текущему значению index.
-         */
+        /* Метод DrawMenu. 
+        * Он принимает список пунктов меню и в зависимости от текущего значения index при нажатии enter возвращает строку выбранного пункта меню.
+        * А с помощью стрелочек вверх и вниз он увеличивает или уменьшает значение переменной index в пределах, от 0 до размера, переданного
+        * в метод списка -1, также метод выделяет пункт меню, соответствующий по номеру текущему значению index.
+        */
         void DrawMenu() {
             Console.CursorVisible = false;
             for (int i = 0; i < menuItems.Count; i++) {

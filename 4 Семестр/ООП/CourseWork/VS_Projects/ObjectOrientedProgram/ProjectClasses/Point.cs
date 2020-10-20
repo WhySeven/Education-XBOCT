@@ -1,24 +1,23 @@
 ﻿namespace ObjectOrientedProgram {
     public class Point {
-        //double x, y; // Поля класса
-
-        public double X { get; set; }
-        public double Y { get; set; }
-
-        public Point() // Конструктор по умолчанию
+        public double x, y;
+        // Конструктор по умолчанию
+        public Point() 
         {
-            X = 0;
-            Y = 0;
+            x = 0;
+            y = 0;
         }
-        public Point(double x, double y) // Конструктор инициализации(заполнения)
+        // Конструктор инициализации(заполнения)
+        public Point(double x, double y) 
         {
-            this.X = x;
-            this.Y = y;
+            this.x = x;
+            this.y = y;
         }
-        public Point(Point p) // Конструктор копирования
+        // Конструктор копирования
+        public Point(Point p) 
         {
-            X = p.X;
-            Y = p.Y;
+            x = p.x;
+            y = p.y;
         }
     }
 }

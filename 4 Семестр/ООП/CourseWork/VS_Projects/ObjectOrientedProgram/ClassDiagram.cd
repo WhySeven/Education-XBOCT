@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="ObjectOrientedProgram.Program">
     <Position X="1" Y="0.5" Width="1.5" />
     <TypeIdentifier>
@@ -7,28 +7,28 @@
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ObjectOrientedProgram.ProjectClasses.Menu">
-    <Position X="2.75" Y="0.5" Width="2.5" />
+  <Class Name="ObjectOrientedProgram.Menu">
+    <Position X="2.75" Y="0.5" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAgAAAgAAQAAQIAAAACEhAAAqAAAAAAAAAIA=</HashCode>
+      <HashCode>AAAAAAAAAgAAAgAAAAAQIAAAACEhAAAqAAAAAAAAAIA=</HashCode>
       <FileName>ProjectClasses\Menu\Menu.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ObjectOrientedProgram.ProjectClasses.Quadrant">
-    <Position X="8" Y="4" Width="2.25" />
+  <Class Name="ObjectOrientedProgram.Quadrant">
+    <Position X="8" Y="5.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAgIAAAAAAAAAgAAAAAAAAAAAAAAAAAAAEAgAAAAAAA=</HashCode>
       <FileName>ProjectClasses\Figures\Quadrant.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ObjectOrientedProgram.ProjectClasses.Triangle">
-    <Position X="8" Y="0.5" Width="2.25" />
+  <Class Name="ObjectOrientedProgram.Triangle">
+    <Position X="8" Y="0.5" Width="3.25" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAAQAAAgAAAAAAAAAAAAEAAACggQAgBAAAAAA=</HashCode>
       <FileName>ProjectClasses\Figures\Triangle.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ObjectOrientedProgram.ProjectClasses.Side">
+  <Class Name="ObjectOrientedProgram.Side">
     <Position X="10.5" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAEAAAAAgAAAAAAAAAA=</HashCode>
@@ -36,17 +36,31 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ObjectOrientedProgram.Point">
-    <Position X="10.5" Y="2.75" Width="2" />
+    <Position X="9.5" Y="4.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
       <FileName>ProjectClasses\Point.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ObjectOrientedProgram.ProjectClasses.MonteCarloCalculator">
-    <Position X="5.5" Y="0.5" Width="2.25" />
+  <Class Name="ObjectOrientedProgram.MonteCarloCalculator">
+    <Position X="2" Y="4.75" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAEAAAoAAIAAIAAAAAAQAUAAIAAgAACuCARgABAAAAA=</HashCode>
+      <HashCode>AAEAAAgAAIAAIAAAAAAQAUAAICAgAACuCARgAAAAAAA=</HashCode>
       <FileName>ProjectClasses\MonteCarloCalculator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectOrientedProgram.PointValidator">
+    <Position X="12.75" Y="1.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqAAABAAAAAAA=</HashCode>
+      <FileName>ProjectClasses\Menu\PointValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectOrientedProgram.Table" Collapsed="true">
+    <Position X="13.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAoAAAAAAAAAAgAACAAAIAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>ProjectClasses\Table.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

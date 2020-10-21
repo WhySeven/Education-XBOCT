@@ -5,7 +5,7 @@ namespace ObjectOrientedProgram {
     class Menu {
         // Поле которое будет заполнено списком пунктов меню
         readonly List<string> menuItems;
-        int currentMenuIndex = 0;
+        private int currentMenuIndex = 0;
         /* Введение полей, необходимых для описания фигуры и буферных переменных, 
          * которые будут использоваться для предотвращения ошибок при вводе данных*/
         Point a;
@@ -56,7 +56,8 @@ namespace ObjectOrientedProgram {
                     * обеспечивающие все рассчёты и вывод таблицы с необходимыми данными в консоль*/
                     MonteCarloCalculator calc_example = new MonteCarloCalculator(a, e, g);
                     calc_example.Calculate();
-                    calc_example.DrawTable();
+                    Table table_example = new Table(calc_example);
+                    table_example.DrawTable();
                     PressAnyKeyToContinue();
                     break;
                 // 3.
@@ -82,7 +83,8 @@ namespace ObjectOrientedProgram {
                          * обеспечивающие все рассчёты и вывод таблицы с необходимыми данными в консоль*/
                         MonteCarloCalculator calc = new MonteCarloCalculator(a, e, g);
                         calc.Calculate();
-                        calc.DrawTable();
+                        Table table = new Table(calc);
+                        table.DrawTable();
                         PressAnyKeyToContinue();
                     }
                     break;
@@ -136,7 +138,7 @@ namespace ObjectOrientedProgram {
         // Метод показывающий текущие данные фигуры
         void ShowCurrentData(Point a, Point e, Point g) {
             Console.Clear();
-            Console.WriteLine("your figure data:\n\nd({0}, {1}), e({2}, {3}), g({4}, {5}), o({6}, {7});", e.x + (e.y - a.y), a.y, e.x, e.y, g.x, g.y, e.x, a.y);
+            Console.WriteLine("Your figure data:\n\nd({0}, {1}), e({2}, {3}), g({4}, {5}), o({6}, {7});", e.x + (e.y - a.y), a.y, e.x, e.y, g.x, g.y, e.x, a.y);
             PressAnyKeyToContinue();
         }
         // Метод сообщающий, что нужно нажать на клавишу для того, чтобы продолжить

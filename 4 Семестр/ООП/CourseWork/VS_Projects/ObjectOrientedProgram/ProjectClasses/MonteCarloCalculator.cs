@@ -12,7 +12,7 @@ namespace ObjectOrientedProgram {
         // Точки, лежащие на главной диагонали прямоугольника
         private readonly Point a, c;
         // Шаг метода
-        private int step = 0;
+        public int step = 0;
         // площадь прямоугольника в котором находится наша фигура dego
         private readonly double rectangle_Square;
         // Координаты точки, которую мы будем бросать в прямоугольник
@@ -20,13 +20,13 @@ namespace ObjectOrientedProgram {
         //Случайное число от 0 до 1
         Random random = new Random();
         // Точная площадь
-        private double dego_Square;
+        public double dego_Square;
         // Поле в которое будет записана площадь, вычисленная методом Монте-Карло
-        private List<double> monte_carlo_Square = new List<double>();
+        public List<double> monte_carlo_Square = new List<double>();
         // Относительная погрешность
-        private List<double> relError = new List<double>();
+        public List<double> relError = new List<double>();
         // Поле в которое будет записано время затраченное на метод Calculate
-        private List<long> ms = new List<long>();
+        public List<long> ms = new List<long>();
         // Заполняем наши поля с помощью конструктора
         public MonteCarloCalculator(Point a, Point e, Point g) // Конструктор инициализации
         {
@@ -77,27 +77,6 @@ namespace ObjectOrientedProgram {
                 ms.Add(sw.ElapsedMilliseconds);
                 step++;
             }           
-        }
-        // Вывод таблицы в консоль
-        public void DrawTable() {
-            int[] tableCellSizes = new int[] { 14, 24, 30, 26, 12 };
-            for (int i = 0; i < step; i++) {
-                DrawHorizontalLine("╔", "╦", "╗", tableCellSizes);
-                Console.WriteLine("║ N = {0,-8} ║ dego Square = {1,-8} ║ MonteCarlo Square = {2,-8} ║ Relative Error = {3,-6}% ║ ms = {4,-5} ║", Math.Pow(10, 3 + Convert.ToDouble(i)), Math.Round(dego_Square, 3), Math.Round(monte_carlo_Square[i], 3), Math.Round(relError[i], 3), ms[i]);
-                DrawHorizontalLine("╚", "╩", "╝", tableCellSizes);
-            }
-            void DrawHorizontalLine(string a, string b, string c, int[] tableCellSizes) {
-                Console.Write(a);
-                for (int j = 0; j < tableCellSizes.Length; j++) {
-                    for (int i = 0; i < tableCellSizes[j]; i++) {
-                        Console.Write("═");
-                    }
-                    if (j != tableCellSizes.Length - 1) {
-                        Console.Write(b);
-                    }
-                }
-                Console.WriteLine(c);
-            }
         }
     }
 }

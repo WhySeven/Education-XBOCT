@@ -25,7 +25,7 @@ namespace ObjectOrientedProgram {
         Random random = new Random();
         // Координаты точки, которую мы будем бросать в прямоугольник
         double x, y;
-        // Заполняем наши поля с помощью конструкторав
+        // Заполняем наши поля с помощью конструктора
         public MonteCarloCalculator(Point a, Point e, Point g) // Конструктор инициализации
         {
             this.a = a;

@@ -5,39 +5,38 @@ namespace ObjectOrientedProgram
     class Quadrant
     {
         // Поля класса
-        public Point center, p;
+        Point centerPoint;
+        Point pointOnRadius;
+        double radius;
+        public double Area { get; set; }
         // Конструктор по умолчанию
         public Quadrant() 
         {
-            center = new Point();
-            p = new Point();
+            centerPoint = new Point();
+            pointOnRadius = new Point();
+            InitializationОfAreaAndRadius(centerPoint, pointOnRadius);
         }
         // Конструктор инициализации(заполнения)
-        public Quadrant(Point center, Point p) 
+        public Quadrant(Point centerPoint, Point pointOnRadius) 
         {
-            this.center = center;
-            this.p = p;
+            this.centerPoint = centerPoint;
+            this.pointOnRadius = pointOnRadius;
+            InitializationОfAreaAndRadius(centerPoint, pointOnRadius);
         }
         // Конструктор копирования
-        public Quadrant(Quadrant q) 
+        public Quadrant(Quadrant quadrant) 
         {
-            center = q.center;
-            p = q.p;
+            centerPoint = quadrant.centerPoint;
+            pointOnRadius = quadrant.pointOnRadius;
+            InitializationОfAreaAndRadius(centerPoint,pointOnRadius);
         }
-        // Метод возвращающий длину радиуса квадранта
-        public double Radius()
-        {
-            return new Side(center, p).Length();
+        void InitializationОfAreaAndRadius (Point centerPoint, Point pointOnRadius) {
+            radius = new Side(centerPoint, pointOnRadius).Length();
+            Area = 0.25 * Math.PI * Math.Pow(radius, 2);
         }
-        // Метод вычисляющий точную площадь квадранта
-        public double Square() 
-        {
-            return 0.25 * Math.PI * Math.Pow(Radius(), 2);
-        }
-        // Метод проверящий попадает ли точка 'p' в квадрант
         public bool CheckPoint(Point p) 
         {
-            if ((Math.Pow(p.x - center.x, 2) + Math.Pow(p.y - center.y, 2) <= Math.Pow(Radius(), 2)) && (p.x >= center.x) && (p.y >= center.y))
+            if (Math.Pow(p.X - centerPoint.X, 2) + Math.Pow(p.Y - centerPoint.Y, 2) <= Math.Pow(radius, 2) && (p.X >= centerPoint.X))
             {
                 return true;
             }

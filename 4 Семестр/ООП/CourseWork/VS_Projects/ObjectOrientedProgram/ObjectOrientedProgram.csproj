@@ -5,10 +5,4 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="ProjectClasses\Новая папка\**" />
-    <EmbeddedResource Remove="ProjectClasses\Новая папка\**" />
-    <None Remove="ProjectClasses\Новая папка\**" />
-  </ItemGroup>
-
 </Project>

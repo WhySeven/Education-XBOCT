@@ -4,58 +4,52 @@ namespace ObjectOrientedProgram {
     class Triangle
     {
         // Вершины треугольника
-        public Point p1, p2, p3;
+        Point point1, point2, point3;
         // Стороны треугольника
-        public Side a, b, c;
+        Side side1, side2, side3;
+        double Perimeter;
+        public double Area { get; set; }
         // Конструктор по умолчанию
         public Triangle() 
         {
-            p1 = new Point();
-            p2 = new Point();
-            p3 = new Point();
-            InitializeSides(p1, p2, p3);
+            point1 = new Point();
+            point2 = new Point();
+            point3 = new Point();
+            InitializeOtherFields();
         }
         // Конструктор инициализации(заполнения)
-        public Triangle(Point p1, Point p2, Point p3) 
+        public Triangle(Point point1, Point point2, Point point3) 
         {
-            this.p1 = p1;
-            this.p2 = p2;
-            this.p3 = p3;
-            InitializeSides(this.p1, this.p2, this.p3);
+            this.point1 = point1;
+            this.point2 = point2;
+            this.point3 = point3;
+            InitializeOtherFields();
         }
         // Конструктор копирования
-        public Triangle(Triangle t) 
+        public Triangle(Triangle triangle) 
         {
-            p1 = t.p1;
-            p2 = t.p2;
-            p3 = t.p3;
-            InitializeSides(t.p1, t.p2, t.p3);
+            point1 = triangle.point1;
+            point2 = triangle.point2;
+            point3 = triangle.point3;
+            InitializeOtherFields(); 
         }
         // Метод, использующийся для инициализации сторон треугольника
-        private void InitializeSides(Point p1, Point p2, Point p3) 
+        void InitializeOtherFields() 
         {
-            a = new Side(p1, p2);
-            b = new Side(p2, p3);
-            c = new Side(p3, p1);
-        }
-        // Метод возвращающий периметр
-        public double Perimeter() 
-        {
-            return a.Length() + b.Length() + c.Length();
-        }
-        // Метод возвращающий точную площадь треугольника по формуле Герона 
-        public double Square() 
-        {
-            double p = Perimeter() / 2;
-            return Math.Sqrt(p * (p - a.Length()) * (p - b.Length()) * (p - c.Length()));
+            side1 = new Side(point1, point2);
+            side2 = new Side(point2, point3);
+            side3 = new Side(point3, point1);
+            Perimeter = side1.Length() + side2.Length() + side3.Length();
+            double p = Perimeter / 2;
+            Area = Math.Sqrt(p * (p - side1.Length()) * (p - side2.Length()) * (p - side3.Length()));
         }
         // Метод проверяющий наличие точки 'p' в треугольнике
-        public bool CheckPoint(Point p) 
+        public bool CheckPoint(Point point) 
         {
-            double buf1 = (p1.x - p.x) * (p2.y - p1.y) - (p2.x - p1.x) * (p1.y - p.y);
-            double buf2 = (p2.x - p.x) * (p3.y - p2.y) - (p3.x - p2.x) * (p2.y - p.y);
-            double buf3 = (p3.x - p.x) * (p1.y - p3.y) - (p1.x - p3.x) * (p3.y - p.y);
-            if ((buf1 >= 0 && buf2 >= 0 && buf3 >= 0) || (buf1 <= 0 && buf2 <= 0 && buf3 <= 0))
+            double vectorProduct1 = (point1.X - point.X) * (point2.Y - point1.Y) - (point2.X - point1.X) * (point1.Y - point.Y);
+            double vectorProduct2 = (point2.X - point.X) * (point3.Y - point2.Y) - (point3.X - point2.X) * (point2.Y - point.Y);
+            double vectorProduct3 = (point3.X - point.X) * (point1.Y - point3.Y) - (point1.X - point3.X) * (point3.Y - point.Y);
+            if ((vectorProduct1 >= 0 && vectorProduct2 >= 0 && vectorProduct3 >= 0) || (vectorProduct1 <= 0 && vectorProduct2 <= 0 && vectorProduct3 <= 0))
             {
                 return true;
             }

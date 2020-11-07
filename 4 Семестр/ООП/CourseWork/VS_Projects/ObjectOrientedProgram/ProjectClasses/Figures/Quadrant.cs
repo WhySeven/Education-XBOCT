@@ -5,26 +5,23 @@ namespace ObjectOrientedProgram
     class Quadrant
     {
         // Поля класса
-        Point centerPoint;
-        Point pointOnRadius;
+        readonly Point centerPoint;
+        readonly Point pointOnRadius;
         double radius;
         public double Area { get; set; }
-        // Конструктор по умолчанию
-        public Quadrant() 
+        public Quadrant() // Конструктор по умолчанию
         {
             centerPoint = new Point();
             pointOnRadius = new Point();
             InitializationОfAreaAndRadius(centerPoint, pointOnRadius);
-        }
-        // Конструктор инициализации(заполнения)
-        public Quadrant(Point centerPoint, Point pointOnRadius) 
+        }    
+        public Quadrant(Point centerPoint, Point pointOnRadius) // Конструктор инициализации
         {
             this.centerPoint = centerPoint;
             this.pointOnRadius = pointOnRadius;
             InitializationОfAreaAndRadius(centerPoint, pointOnRadius);
         }
-        // Конструктор копирования
-        public Quadrant(Quadrant quadrant) 
+        public Quadrant(Quadrant quadrant) // Конструктор копирования
         {
             centerPoint = quadrant.centerPoint;
             pointOnRadius = quadrant.pointOnRadius;

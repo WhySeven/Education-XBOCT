@@ -4,28 +4,18 @@ using System.Collections.Generic;
 
 namespace ObjectOrientedProgram {
     public class MonteCarloCalculator {
-        // Треугольник и квадрант
         readonly Quadrant quadrant;
         readonly Triangle triangle;
-        // Точки фигуры dego
         readonly Point d, e, g, o;
-        // Точки, лежащие на главной диагонали прямоугольника
         readonly Point a, c;
-        // площадь прямоугольника в котором находится наша фигура dego
         readonly double rectangle_Square;
-        // Точная площадь
         double dego_Square;
-        // Поле в которое будет записана площадь, вычисленная методом Монте-Карло
-        List<double> monte_carlo_Square = new List<double>();
-        // Относительная погрешность
-        List<double> relError = new List<double>();
-        // Поле в которое будет записано время затраченное на метод Calculate
-        List<long> ms = new List<long>();
-        //Случайное число от 0 до 1
-        Random random = new Random();
-        // Координаты точки, которую мы будем бросать в прямоугольник
+        readonly List<double> monte_carlo_Square = new List<double>();
+        readonly List<double> relError = new List<double>();
+        readonly List<long> ms = new List<long>();
+        readonly Random random = new Random();
         double x, y;
-        // Заполняем наши поля с помощью конструктора
+        readonly int[] tableCellSizes = new int[] { 14, 24, 30, 26, 12 };
         public MonteCarloCalculator(Point a, Point e, Point g) // Конструктор инициализации
         {
             this.a = a;
@@ -56,33 +46,30 @@ namespace ObjectOrientedProgram {
             {
                 x = random.NextDouble() * (c.X - a.X) + a.X;
                 y = random.NextDouble() * (c.Y - a.Y) + a.Y;
-                if(CheckPoint(new Point(x,y)))
-                {
-                    count++;
-                }
+                if(CheckPoint(new Point(x,y))){count++;}
             }
             return rectangle_Square * count / N;
         }
         public void Calculate() {
+            // Вычисление точной площади
+            dego_Square = GetExactArea();
             for (double N = Math.Pow(10, 3); N <= Math.Pow(10, 7); N *= 10) {
                 Stopwatch sw = new Stopwatch();
                 sw.Start();
-                // Вычисление точной площади
-                dego_Square = GetExactArea();
+
                 // Вычисление площади методом Монте-Карло
                 monte_carlo_Square.Add(GetMonteCarloSquare(Convert.ToInt32(N)));
                 // Вычисление погрешности вычислений (relative error)
-                relError.Add(Math.Abs((dego_Square - monte_carlo_Square[Convert.ToInt32(Math.Log(Convert.ToInt32(N),10)-3)]) / dego_Square) * 100);
-                // Стоп таймера       
+                relError.Add(Math.Abs((dego_Square - monte_carlo_Square[Convert.ToInt32(Math.Log(N,10)-3)]) / dego_Square) * 100);     
+                
                 sw.Stop();
-                // Подсчёт милисекунд
                 ms.Add(sw.ElapsedMilliseconds);
             }
-            Draw();
+            DrawTable();
         }
         //Вывод в консоль
-        int [] tableCellSizes = new int[] { 14, 24, 30, 26, 12 };
-        void Draw() {
+        
+        void DrawTable() {
             for (int i = 0; i < 5; i++) {
                 DrawHorizontalLine("╔", "╦", "╗", tableCellSizes);
                 Console.WriteLine("║ N = {0,-8} ║ dego Square = {1,-8} ║ MonteCarlo Square = {2,-8} ║ Relative Error = {3,-6}% ║ ms = {4,-5} ║", Math.Pow(10, 3 + Convert.ToDouble(i)), Math.Round(dego_Square, 3), Math.Round(monte_carlo_Square[i], 3), Math.Round(relError[i], 3), ms[i]);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ObjectOrientedProgram {
     class PointValidator {
-        Point a, e, g;
+        readonly Point a, e, g;
         public PointValidator(Point a, Point e, Point g) {
             this.a = a;
             this.e = e;

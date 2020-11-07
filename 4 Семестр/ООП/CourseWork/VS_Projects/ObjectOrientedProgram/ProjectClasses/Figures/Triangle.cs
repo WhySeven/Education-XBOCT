@@ -4,36 +4,33 @@ namespace ObjectOrientedProgram {
     class Triangle
     {
         // Вершины треугольника
-        Point point1, point2, point3;
+        readonly Point point1, point2, point3;
         // Стороны треугольника
         Side side1, side2, side3;
         double Perimeter;
-        public double Area { get; set; }
-        // Конструктор по умолчанию
-        public Triangle() 
+        public double Area { get; set; }    
+        public Triangle() // Конструктор по умолчанию
         {
             point1 = new Point();
             point2 = new Point();
             point3 = new Point();
             InitializeOtherFields();
-        }
-        // Конструктор инициализации(заполнения)
-        public Triangle(Point point1, Point point2, Point point3) 
+        }   
+        public Triangle(Point point1, Point point2, Point point3) // Конструктор инициализации
         {
             this.point1 = point1;
             this.point2 = point2;
             this.point3 = point3;
             InitializeOtherFields();
-        }
-        // Конструктор копирования
-        public Triangle(Triangle triangle) 
+        }  
+        public Triangle(Triangle triangle) // Конструктор копирования
         {
             point1 = triangle.point1;
             point2 = triangle.point2;
             point3 = triangle.point3;
             InitializeOtherFields(); 
         }
-        // Метод, использующийся для инициализации сторон треугольника
+        // Метод, использующийся для инициализации сторон треугольника и остальных полей
         void InitializeOtherFields() 
         {
             side1 = new Side(point1, point2);

@@ -1,30 +1,25 @@
 ﻿using System;
-
 namespace ObjectOrientedProgram { 
     public class Side
     {
-        Point p1;
-        Point p2;
-        // Конструктор по умолчанию
-        public Side() 
+        readonly Point p1;
+        readonly Point p2;
+        public Side() // Конструктор по умолчанию
         {
             p1 = new Point();
             p2 = new Point();
-        }
-        // Конструктор инициализации(заполнения)
-        public Side(Point p1, Point p2)
+        }       
+        public Side(Point p1, Point p2) // Конструктор инициализации
         {
             this.p1 = p1;
             this.p2 = p2;
-        }
-        // Конструктор копирования
-        public Side(Side s) 
+        }  
+        public Side(Side s) // Конструктор копирования
         {
             p1 = s.p1;
             p2 = s.p2;
         }
-        // Метод возвращающий длину стороны
-        public double Length() 
+        public double Length() // Метод возвращающий длину стороны
         {
             return Math.Sqrt(Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2));
         }
